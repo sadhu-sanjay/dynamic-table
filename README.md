@@ -1,6 +1,6 @@
 A Next Js 13 . App router Records with with full sorting, filtering, pagination functionality
 
-Direct Link to the Table
+Link to the table code.
 https://github.com/sadhu-sanjay/dynamic-table/blob/main/src/components/Organisms/table.tsx
 
 A dashboard table view create for as demo. 
