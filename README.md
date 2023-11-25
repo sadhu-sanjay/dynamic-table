@@ -1,7 +1,7 @@
 ### NOTE: work in progress as of sat 25 nov 2023
 
 
-A Next Js 13 . App router Records with with full sorting, filtering, pagination functionality
+A Next Js 13 App. with fully supported column sorting, multi-column-dynamic-filtering, pagination functionality etc. 
 
 Link to the table code.
 https://github.com/sadhu-sanjay/dynamic-table/blob/main/src/components/Organisms/table.tsx
