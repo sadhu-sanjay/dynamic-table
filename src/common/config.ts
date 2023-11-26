@@ -1,4 +1,7 @@
-import { DropdownOption } from "./types";
+import { DropdownOption } from "../models/types";
+
+export const RECORDS_FETCH_URL = 'https://sanjaygoswami.online/api/records?viewKey=viwJ1RUrFc3Ahb1hk';
+
 
 export const visibleColumns: Array<DropdownOption> = [
     { value: 'name', label: 'Product Name' },

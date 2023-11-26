@@ -1,30 +1,29 @@
 import { memo, useEffect, useMemo, useState } from "react";
 import { SearchIcon } from "~/icons/searchicon";
-import { myDebounce } from "~/utility/common";
+import { myDebounce } from "~/common/utility";
 
 export type SearchBarProps = {
-  onValueChange: (value: string) => void;
+  onChange: (value: string) => void;
   debounchTime?: number;
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
   showSearchButton?: boolean;
 };
 
 const Searchbar: React.FC<SearchBarProps> = ({
-  onValueChange,
+  onChange,
   debounchTime = 300,
-  showSearchButton = false,
+  showSearchButton = true,
 }) => {
-  const debounedChange = useMemo(
-    () => myDebounce(onValueChange, debounchTime),
-    [debounchTime, onValueChange]
-  );
-  const [searchTerm, setSearchTerm] = useState("");
-
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onValueChange(searchTerm);
+    onChange(searchTerm);
   };
+
+  const debouncedOnChange = useMemo(
+    () => myDebounce(onChange, debounchTime),
+    [debounchTime, onChange]
+  );
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <form onSubmit={onSubmit}>
@@ -42,29 +41,30 @@ const Searchbar: React.FC<SearchBarProps> = ({
           type="search"
           id="default-search"
           value={searchTerm}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSearchTerm(value);
+            debouncedOnChange(value);
+          }}
           className="block w-full p-4 pl-10 text-sm 
           text-gray-900 border border-gray-300 rounded-full 
           bg-gray-50 focus:ring-blue-500 focus:border-blue-500 
           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search by cities, tags, regions etc.."
-          // required
-          onChange={(e) => {
-            let value = e.target.value;
-            setSearchTerm(value);
-            debounedChange(value);
-          }}
         />
-        <button
-          type="submit"
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full px-3 py-2 text-center
+        {showSearchButton && (
+          <button
+            type="submit"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full px-3 py-2 text-center
           text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
           hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
           dark:focus:ring-blue-800 shadow-sm shadow-blue-500/50 dark:shadow-sm 
           dark:shadow-blue-800/80 font-medium text-sm "
-        >
-          search
-        </button>
+          >
+            search
+          </button>
+        )}
         {/* {searchValue && (
           <button
             type="button"
