@@ -1,5 +1,5 @@
 import { memo, useEffect, useMemo, useState } from "react";
-import { SearchIcon } from "~/icons/searchicon";
+import { SearchIcon } from "~/icons/search-icon";
 import { myDebounce } from "~/common/utility";
 
 export type SearchBarProps = {

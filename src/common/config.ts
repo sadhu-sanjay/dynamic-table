@@ -1,14 +1,15 @@
 import { DropdownOption } from "../models/types";
 
-export const RECORDS_FETCH_URL = 'https://sanjaygoswami.online/api/records?viewKey=viwJ1RUrFc3Ahb1hk';
-
+export const SERVER_URL = 'https://sanjaygoswami.online';
+export const RECORDS_FETCH_URL = `${SERVER_URL}/api/records`;
+export const ITALY_VIEW_URL = `${RECORDS_FETCH_URL}?viewKey=viwJ1RUrFc3Ahb1hk`;
 
 export const visibleColumns: Array<DropdownOption> = [
-    { value: 'name', label: 'Product Name' },
-    { value: 'color', label: 'Color' },
-    { value: 'category', label: 'Category' },
-    { value: 'price', label: 'Price' },
-    { value: 'inStock', label: 'In Stock' },
-    { value: 'onSale', label: 'On Sale' },
-    { value: 'weight', label: 'Weight' }
+    { value: 'RecordKey', label: 'Record Key' },
+    { value: 'Region', label: 'Region' },
+    { value: 'Title', label: 'Title' },
+    { value: 'SearchString', label: 'Search String' },
+    { value: 'lat', label: 'Latitude' },
+    { value: 'lng', label: 'Longitude' },
+    { value: 'Tags', label: 'Tags' }
 ];
