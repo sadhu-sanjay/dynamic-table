@@ -74,18 +74,22 @@ export const Table: React.FC<TableProps> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            <tr
-              key={index}
-              className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"
-            >
-              {visibleColumns.map((column) => (
-                <td key={column.value} className="px-6 py-3 max-w-sm">
-                  {(row as any)[column.value]}
-                </td>
-              ))}
-            </tr>
-          ))}
+          {data &&
+            data.map((row, index) => (
+              <tr
+                key={index}
+                className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                {visibleColumns.map((column) => (
+                  <td
+                    key={column.value}
+                    className="px-6 py-3 max-w-xs overflow-hidden"
+                  >
+                    {(row as any)[column.value]}
+                  </td>
+                ))}
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
