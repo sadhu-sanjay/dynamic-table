@@ -52,16 +52,16 @@ export const Table: React.FC<TableProps> = ({ data }) => {
 
   return (
     <div
-      className="relative shadow-md sm:rounded-lg 
+      className="shadow-md sm:rounded-lg 
      sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl
-      max-h-[82dvh] 
-      h-[96dvh] w-[90dvw]
+      max-h-[82dvh] relative
+      h-[96dvh] w-[90dvw] 
        "
     >
       <TableHeader onSearch={handleSearch} onFilter={handleFilter} />
-      <div className=" bg-fuchsia-900 h-full w-full overflow-auto">
-        <table className="bg-red-900 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="sticky top-0 w-full  text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className=" bg-fuchsia-900 w-full h-full overflow-auto">
+        <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="sticky top-0 z-10 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {data &&
                 Object.keys(data[0]).map((key, index) => (
