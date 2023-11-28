@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { visibleColumns } from "~/common/config";
 import IconSort from "~/icons/sort-icon";
 import { motion } from "framer-motion";
+import { TableHeader } from "../Organisms/table-header";
 
 type TableProps = {
   data: Array<Object>;
@@ -44,33 +45,42 @@ export const Table: React.FC<TableProps> = ({ data }) => {
     setFilteredData(sortedData);
   };
 
+  const handleFilter = (value: any) => {
+    // const filtered = data.filter((row: any) => {
+    //   return row[column].toLowerCase().includes(value.toLowerCase());
+    // });
+    // setFilteredData(filtered);
+  };
+
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <div className="p-4 bg-white dark:bg-gray-900">
-        <Searchbar onChange={handleSearch} />
-      </div>
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <div
+      className="relative overflow-x-auto shadow-md sm:rounded-lg 
+    max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl"
+    >
+      <TableHeader onSearch={handleSearch} onFilter={handleFilter} />
+      {/* <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            {visibleColumns.map((column) => (
-              <th key={column.value} scope="col" className="px-6 py-3 ">
-                <motion.div
-                  className="flex items-center cursor-pointer"
-                  onClick={() => handleSort(column.value)}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 1.0 }}
-                >
-                  {column.label}
-                  <IconSort
-                    className={`w-4 h-4 ml-1 ${
-                      sortConfig.key === column.value
-                        ? "text-gray-700 dark:text-gray-300"
-                        : "text-gray-400 dark:text-gray-600"
-                    }`}
-                  />
-                </motion.div>
-              </th>
-            ))}
+            {data &&
+              Object.keys(data[0]).map((key, index) => (
+                <th key={index} scope="col" className="px-6 py-3 ">
+                  <motion.div
+                    className="flex items-center cursor-pointer"
+                    onClick={() => handleSort(key)}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 1.0 }}
+                  >
+                    {key}
+                    <IconSort
+                      className={`w-4 h-4 ml-1 ${
+                        sortConfig.key === key
+                          ? "text-gray-700 dark:text-gray-300"
+                          : "text-gray-400 dark:text-gray-600"
+                      }`}
+                    />
+                  </motion.div>
+                </th>
+              ))}
           </tr>
         </thead>
         <tbody>
@@ -80,18 +90,19 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                 key={index}
                 className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"
               >
-                {visibleColumns.map((column) => (
+                {Object.keys(data[0]).map((key, index) => (
                   <td
-                    key={column.value}
+                    key={index}
                     className="px-6 py-3 max-w-xs overflow-hidden"
                   >
-                    {(row as any)[column.value]}
+                    {" "}
+                    {(row as any)[key]}
                   </td>
                 ))}
               </tr>
             ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };
