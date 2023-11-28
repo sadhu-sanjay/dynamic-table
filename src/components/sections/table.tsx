@@ -1,9 +1,9 @@
 "use client";
-import { SortConfig } from "~/models/types";
 import { useState } from "react";
-import IconSort from "~/icons/sort-icon";
-import { motion } from "framer-motion";
 import { TableHeader } from "~/components/Organisms/table-header";
+import { SortConfig } from "~/models/types";
+import { motion } from "framer-motion";
+import SortIcon from "~/icons/sort-icon";
 
 type TableProps = {
   data: Array<Object>;
@@ -52,15 +52,21 @@ export const Table: React.FC<TableProps> = ({ data }) => {
 
   return (
     <div
-      className="shadow-md sm:rounded-lg 
-     sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl
-      max-h-[82dvh] relative
-      h-[96dvh] w-[90dvw] 
-       "
+      className="relative shadow-md sm:rounded-lg 
+      h-[90dvh] w-[100vw] "
     >
       <TableHeader onSearch={handleSearch} onFilter={handleFilter} />
-      <div className=" bg-fuchsia-900 w-full h-full overflow-auto">
+      <div className=" bg-fuchsia-900 w-full h-full overflow-auto ">
         <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            tenetur atque nesciunt modi nostrum doloribus consequatur quia
+            dolor! Quidem, ratione hic. Similique totam accusamus amet est
+            asperiores sint velit in.Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Tempore tenetur atque nesciunt modi nostrum
+            doloribus consequatur quia dolor! Quidem, ratione hic. Similique
+            totam accusamus amet est asperiores sint velit in.
+          </div>
           <thead className="sticky top-0 z-10 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {data &&
@@ -73,7 +79,7 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                       whileTap={{ scale: 1.0 }}
                     >
                       {key}
-                      <IconSort
+                      <SortIcon
                         className={`w-4 h-4 ml-1 ${
                           sortConfig.key === key
                             ? "text-gray-700 dark:text-gray-300"
@@ -97,7 +103,6 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                       key={index}
                       className="px-6 py-3 max-w-xs overflow-hidden"
                     >
-                      {" "}
                       {(row as any)[key]}
                     </td>
                   ))}

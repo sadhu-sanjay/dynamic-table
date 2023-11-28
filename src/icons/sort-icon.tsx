@@ -1,7 +1,6 @@
 // icon:bxs-sort-alt | Boxicons https://boxicons.com/ | Atisa
-import * as React from "react";
 
-function IconSort(props: React.SVGProps<SVGSVGElement>) {
+function SortIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -15,4 +14,4 @@ function IconSort(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconSort;
+export default SortIcon;
