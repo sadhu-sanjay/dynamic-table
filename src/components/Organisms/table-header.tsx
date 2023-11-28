@@ -11,7 +11,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
   onFilter,
 }) => {
   return (
-    <div className="sticky bg-white shadow-md dark:bg-gray-800">
+    <div className="sticky top-0 bg-white shadow-md dark:bg-gray-800">
       <div className="flex flex-col items-center justify-between p-3 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
         <Searchbar onChange={onSearch} />
         <Dropdown
