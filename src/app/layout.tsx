@@ -1,4 +1,4 @@
-import ReactQueryProvider from "~/providers/tan-stack";
+import ReactQueryProvider from "~/providers/tanstack-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

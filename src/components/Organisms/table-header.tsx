@@ -6,13 +6,11 @@ import ArrowDown from "~/icons/arrow-down";
 type TableHeaderProps = {
   className?: string;
   onSearch: (term: string) => void;
-  onFilter: (item: any) => void;
 };
 
 export const TableHeader: React.FC<TableHeaderProps> = ({
   className,
   onSearch,
-  onFilter,
 }) => {
   return (
     <div

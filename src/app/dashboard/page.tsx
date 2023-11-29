@@ -12,5 +12,5 @@ export default function Products() {
     queryFn: () => fetch(RECORDS_FETCH_URL).then((res) => res.json()),
   });
 
-  return <Table data={data} search pagination />;
+  return <Table data={query.data} search pagination />;
 }
