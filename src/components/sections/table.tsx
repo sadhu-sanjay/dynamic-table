@@ -53,30 +53,20 @@ export const Table: React.FC<TableProps> = ({ data }) => {
   return (
     <div
       className="relative shadow-md sm:rounded-lg 
-      h-[90dvh] w-[100vw] "
+      h-5/6 w-5/6 bg-white dark:bg-gray-800
+      flex flex-col "
     >
       <TableHeader onSearch={handleSearch} onFilter={handleFilter} />
-      <div className=" bg-fuchsia-900 w-full h-full overflow-auto ">
-        <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            tenetur atque nesciunt modi nostrum doloribus consequatur quia
-            dolor! Quidem, ratione hic. Similique totam accusamus amet est
-            asperiores sint velit in.Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Tempore tenetur atque nesciunt modi nostrum
-            doloribus consequatur quia dolor! Quidem, ratione hic. Similique
-            totam accusamus amet est asperiores sint velit in.
-          </div>
-          <thead className="sticky top-0 z-10 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="w-full h-full overflow-auto bg-pink-700">
+        <table className="w-full overflow-auto bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {data &&
                 Object.keys(data[0]).map((key, index) => (
                   <th key={index} scope="col" className="px-6 py-3 ">
-                    <motion.div
+                    <div
                       className="flex items-center cursor-pointer"
                       onClick={() => handleSort(key)}
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 1.0 }}
                     >
                       {key}
                       <SortIcon
@@ -86,14 +76,14 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                             : "text-gray-400 dark:text-gray-600"
                         }`}
                       />
-                    </motion.div>
+                    </div>
                   </th>
                 ))}
             </tr>
           </thead>
           <tbody>
-            {data &&
-              data.map((row, index) => (
+            {filteredData &&
+              filteredData.map((row, index) => (
                 <tr
                   key={index}
                   className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"

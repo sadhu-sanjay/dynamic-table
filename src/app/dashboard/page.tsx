@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { RECORDS_FETCH_URL } from "~/common/config";
 import { useEffect } from "react";
 import axios from "axios";
-import { Customer } from "~/scratchpad";
+import data from "~/../data.json";
 
 export default function Products() {
   const query = useQuery({
@@ -12,9 +12,5 @@ export default function Products() {
     queryFn: () => fetch(RECORDS_FETCH_URL).then((res) => res.json()),
   });
 
-  return (
-    <>
-      <Table data={query.data} search pagination />
-    </>
-  );
+  return <Table data={data} search pagination />;
 }

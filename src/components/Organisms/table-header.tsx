@@ -4,16 +4,20 @@ import PlusIcon from "~/icons/plus-icon";
 import ArrowDown from "~/icons/arrow-down";
 
 type TableHeaderProps = {
+  className?: string;
   onSearch: (term: string) => void;
   onFilter: (item: any) => void;
 };
 
 export const TableHeader: React.FC<TableHeaderProps> = ({
+  className,
   onSearch,
   onFilter,
 }) => {
   return (
-    <div className="bg-white shadow-md dark:bg-gray-800">
+    <div
+      className={`${className} w-full bg-white shadow-md dark:bg-gray-800`}
+    >
       <div className="flex flex-col items-center justify-between p-3 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
         <Searchbar onChange={onSearch} />
         {/* <Dropdown
