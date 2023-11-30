@@ -1,7 +1,8 @@
 import Searchbar from "~/components/Molecules/searchbar";
-import { Dropdown } from "../Molecules/dropdown";
 import PlusIcon from "~/icons/plus-icon";
 import ArrowDown from "~/icons/arrow-down";
+import CategoryFilter from "./category-filter";
+import { useFilters } from "~/providers/filter-provider";
 
 type TableHeaderProps = {
   className?: string;
@@ -12,17 +13,14 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
   className,
   onSearch,
 }) => {
+  const { filters } = useFilters();
+
   return (
-    <div
-      className={`${className} w-full bg-white shadow-md dark:bg-gray-800`}
-    >
+    <div className={`${className} w-full bg-white shadow-md dark:bg-gray-800`}>
       <div className="flex flex-col items-center justify-between p-3 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
         <Searchbar onChange={onSearch} />
-        {/* <Dropdown
-          label="Filter"
-          placeholder="Filter by"
-          onItemSelected={onFilter}
-        /> */}
+        <CategoryFilter />
+
         <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
           <button
             type="button"

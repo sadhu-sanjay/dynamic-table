@@ -6,6 +6,7 @@ export function Dropdown({
   label,
   placeholder,
   onItemSelected,
+
 }: {
   label: string;
   placeholder: string;

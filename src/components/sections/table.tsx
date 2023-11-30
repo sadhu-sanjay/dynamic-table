@@ -28,7 +28,7 @@ export const Table: React.FC<TableProps> = ({ data }) => {
     >
       <TableHeader onSearch={handleSearch} />
       <div className="w-full h-full overflow-auto bg-pink-700">
-        <table className="w-full overflow-auto bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table className="w-full bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {data &&

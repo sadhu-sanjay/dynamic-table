@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { useState, PropsWithChildren, createContext, useContext } from "react";
 
 export enum Operators {
   equal = "eq",
@@ -15,8 +15,28 @@ export type FilterValue = string | number | boolean | Date;
 
 export type FilterCondition = [string, Operators, FilterValue];
 
-type contextType = {
+type ContextState = {
   filters: FilterCondition[];
   setFilters(value: FilterCondition[]): void;
 };
+
+export const FilterContext = createContext<ContextState | null>(null);
+
+export const FilterProvider = (props: PropsWithChildren) => {
+  const [filters, setFilters] = useState<FilterCondition[]>([]);
+
+  return (
+    <FilterContext.Provider value={{ filters, setFilters }}>
+      {props.children}
+    </FilterContext.Provider>
+  );
+};
+
+export const useFilters = () => {
+  const context = useContext(FilterContext);
+  if (!context) {
+    throw new Error("Please use filter provider in the parent element")
+  }
+  return context
+}
 
