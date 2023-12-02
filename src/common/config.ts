@@ -12,3 +12,5 @@ export const visibleColumns: Array<DropdownOption> = [
     { value: 'lng', label: 'Longitude' },
     { value: 'Tags', label: 'Tags' }
 ];
+
+export const NO_RECORDS_TRY_AGAIN = "No Records found. Please try again in a moment"

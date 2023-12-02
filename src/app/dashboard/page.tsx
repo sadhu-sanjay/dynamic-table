@@ -8,14 +8,14 @@ import data from "~/../data.json";
 import { FilterProvider } from "~/providers/filter-provider";
 
 export default function Products() {
-  const query = useQuery({
+  const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
   });
 
   return (
     <FilterProvider>
-      <Table data={query.data} search pagination />
+      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
     </FilterProvider>
   );
 }

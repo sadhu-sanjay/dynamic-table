@@ -1,19 +1,19 @@
-const ArrowDown: React.FC<{ className?: string }> = ({
-  className,
-}) => {
+const ArrowDown: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <svg
-      className={`${className} h-3.5 w-3.5 mr-2`}
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
+      className={`${className} h-4 w-4`}
       aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clipRule="evenodd"
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-      />
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+      ></path>
     </svg>
   );
 };

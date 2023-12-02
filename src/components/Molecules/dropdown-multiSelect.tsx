@@ -1,70 +1,33 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DropdownOption } from "~/models/types";
 
 function DropdownMultiSelect({
+  data,
   label,
-  placeholder,
-  doneCallBack,
-  fetchUrl,
-  labelAndValue,
-  selectedItems,
-  setSelectedItems,
+  onSelected,
 }: {
+  data: Array<DropdownOption>;
   label: string;
-  placeholder: string;
-  doneCallBack: (selectedItems: DropdownOption[]) => void;
-  fetchUrl: string;
-  labelAndValue: { label: string; value: string };
-  selectedItems: DropdownOption[];
-  setSelectedItems: (selectedItems: DropdownOption[]) => void;
+  onSelected: (selectedItems: DropdownOption[]) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [items, setItems] = useState<Array<any>>([]);
-  const clearAllSelected = () => setSelectedItems([]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const clearAllSelected = () => onSelected([]);
+
+  const [selectedItems, setSelectedItems] = useState<DropdownOption[]>([]);
+
   const filteredItems =
-    items.length > 0
-      ? items.filter((item) => {
+    data.length > 0
+      ? data.filter((item) => {
           if (!item) return;
           return item.label?.toLowerCase().includes(searchTerm.toLowerCase());
         })
       : [];
 
-  useEffect(() => {
-    setIsLoading(true);
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
-    fetch(fetchUrl, { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("TAGS DATA", data);
-        const mappedData = data.map((item: any) => {
-          return {
-            label: item[labelAndValue.label],
-            value: item[labelAndValue.value],
-          };
-        });
-        setItems(mappedData);
-        setIsLoading(false);
-      })
-      .catch((e) => {
-        setIsLoading(false);
-        if (e.name === "AbortError") {
-          return console.log("Fetch Items Aborted DropDown MultiSelect ");
-        }
-        console.error(`Error Fetching ==> ${fetchUrl}`, e);
-      });
-
-    return () => {
-      abortController.abort();
-    };
-  }, [fetchUrl, label, labelAndValue.label, labelAndValue.value]);
-
   const handleSelected = (item: any) => {
-    if (selectedItems.includes(item)) {
+    if (data.includes(item)) {
       setSelectedItems(selectedItems.filter((i) => i !== item));
     } else {
       setSelectedItems([...selectedItems, item]);
@@ -72,7 +35,7 @@ function DropdownMultiSelect({
   };
 
   function doneButtonClicked() {
-    doneCallBack(selectedItems);
+    onSelected(selectedItems);
     setIsOpen(!isOpen);
   }
 
@@ -178,7 +141,7 @@ function DropdownMultiSelect({
                   type="text"
                   id="input-group-search"
                   className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
-                  placeholder={placeholder}
+                  placeholder={`Search ${label}`}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -213,8 +176,8 @@ function DropdownMultiSelect({
                 <p className="flex items-center p-3 text-sm font-medium text-slate-600  dark:text-slate-200 ">
                   {/* show how many selected */}
                   {selectedItems.length === 0
-                    ? `Total: ${items.length}`
-                    : `${selectedItems.length} of ${items.length}`}
+                    ? `Total: ${data.length}`
+                    : `${selectedItems.length} of ${data.length}`}
                 </p>
                 <p
                   onClick={clearAllSelected}
