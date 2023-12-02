@@ -44,7 +44,9 @@ export const Table: React.FC<TableProps> = ({
       flex flex-col"
     >
       {isFetching && <Spinner message="Please wait ..." />}
-      {error && <EmptyList title="Error loading data" subtitle={error.message} />}
+      {error && (
+        <EmptyList title="Error loading data" subtitle={error.message} />
+      )}
       {!error && !isFetching && data?.length < 1 && (
         <EmptyList title="No records found" subtitle={NO_RECORDS_TRY_AGAIN} />
       )}
