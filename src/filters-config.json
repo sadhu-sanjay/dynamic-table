@@ -1,4 +1,33 @@
-
-{
-    
-}
+[
+  {
+    "name": "Title",
+    "type": "text",
+    "label": "Title",
+    "operator": "contains",
+    ""
+  },
+  {
+    "name": "SearchString",
+    "type": "text",
+    "label": "Search String",
+    "operator": "contains"
+  },
+  {
+    "name": "lat",
+    "type": "number",
+    "label": "Latitude",
+    "operator": "equal"
+  },
+  {
+    "name": "lng",
+    "type": "number",
+    "label": "Longitude",
+    "operator": "equal"
+  },
+  {
+    "name": "Tags",
+    "type": "text",
+    "label": "Tags",
+    "operator": "contains"
+  }
+]

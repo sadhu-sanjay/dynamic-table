@@ -1,6 +1,5 @@
+import filterConfig from "~/filters-config.json";
 
-import filterConfig from '~/.dynamic-filters.config'
-
-function DynamicFilters() {
+export function DynamicFilters() {
 
 }

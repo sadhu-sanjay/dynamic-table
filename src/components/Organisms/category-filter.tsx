@@ -19,6 +19,7 @@ const CategoryFilter = () => {
       // add filter condition if checked
       setFilters([...filters, ["category", Operators.equal, category]]);
     } else {
+
       // remove filter condition if unchecked
       const newValue = filters.filter((condition) => condition[2] !== category);
       setFilters(newValue);

@@ -35,8 +35,7 @@ export const FilterProvider = (props: PropsWithChildren) => {
 export const useFilters = () => {
   const context = useContext(FilterContext);
   if (!context) {
-    throw new Error("Please use filter provider in the parent element")
+    throw new Error("Please use filter provider in the parent element");
   }
-  return context
-}
-
+  return context;
+};
