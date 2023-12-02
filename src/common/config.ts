@@ -14,3 +14,40 @@ export const visibleColumns: Array<DropdownOption> = [
 ];
 
 export const NO_RECORDS_TRY_AGAIN = "No Records found. Please try again in a moment"
+
+// Base Configuration for dynamic filters 
+export const dynamicFiltersConfig = {
+    Region: {
+        type: 'dropdown',
+        label: 'Region',
+        options: [
+            { value: 'Asia', label: 'Asia' },
+            { value: 'Europe', label: 'Europe' },
+            { value: 'Africa', label: 'Africa' },
+            { value: 'North America', label: 'North America' },
+            { value: 'South America', label: 'South America' },
+            { value: 'Oceania', label: 'Oceania' },
+            { value: 'Antarctica', label: 'Antarctica' }
+        ]
+    },
+    Title: {
+        type: 'text',
+        label: 'Title'
+    },
+    SearchString: {
+        type: 'text',
+        label: 'Search String'
+    },
+    lat: {
+        type: 'number',
+        label: 'Latitude'
+    },
+    lng: {
+        type: 'number',
+        label: 'Longitude'
+    },
+    Tags: {
+        type: 'text',
+        label: 'Tags'
+    }
+}
