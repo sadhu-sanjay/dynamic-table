@@ -16,17 +16,17 @@ export type FilterValue = string | number | boolean | Date;
 export type FilterCondition = [string, Operators, FilterValue];
 
 type ContextState = {
-  filters: FilterCondition[];
-  setFilters(value: FilterCondition[]): void;
+  selectedFilters: FilterCondition[];
+  setSelectedFilters(value: FilterCondition[]): void;
 };
 
 export const FilterContext = createContext<ContextState | null>(null);
 
 export const FilterProvider = (props: PropsWithChildren) => {
-  const [filters, setFilters] = useState<FilterCondition[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<FilterCondition[]>([]);
 
   return (
-    <FilterContext.Provider value={{ filters, setFilters }}>
+    <FilterContext.Provider value={{ selectedFilters, setSelectedFilters }}>
       {props.children}
     </FilterContext.Provider>
   );

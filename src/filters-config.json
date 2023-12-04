@@ -1,20 +1,28 @@
 [
   {
     "name": "Title",
-    "type": "text",
+    "type": "select",
     "label": "Title",
     "operator": "contains",
-    ""
+    "options": [
+      { "value": "Asia", "label": "Asia" },
+      { "value": "Europe", "label": "Europe" },
+      { "value": "Afria", "label": "Africa" },
+      { "value": "North America", "label": "North America" },
+      { "value": "South America", "label": "South America" },
+      { "value": "Oceania", "label": "Oceania" },
+      { "value": "Antarctica", "label": "Antarctica" }
+    ]
   },
   {
     "name": "SearchString",
-    "type": "text",
+    "type": "multi-select",
     "label": "Search String",
     "operator": "contains"
   },
   {
     "name": "lat",
-    "type": "number",
+    "type": "boolean",
     "label": "Latitude",
     "operator": "equal"
   },
