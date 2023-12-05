@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { DropdownOption } from "~/models/types";
 
 function DropdownMultiSelect({
-  data,
+  options,
   label,
   onSelected,
 }: {
-  data: Array<DropdownOption>;
+  options: Array<DropdownOption>;
   label: string;
   onSelected: (selectedItems: DropdownOption[]) => void;
 }) {
@@ -19,16 +19,19 @@ function DropdownMultiSelect({
   const [selectedItems, setSelectedItems] = useState<DropdownOption[]>([]);
 
   const filteredItems =
-    data.length > 0
-      ? data.filter((item) => {
+    options.length > 0
+      ? options.filter((item) => {
           if (!item) return;
-          return item.label?.toLowerCase().includes(searchTerm.toLowerCase());
+          return item.label
+            ?.toLowerCase()
+            .replace(/\s+/g, "")
+            .includes(searchTerm.toLowerCase().replace(/\s+/g, ""));
         })
       : [];
 
-  const handleSelected = (item: any) => {
-    if (data.includes(item)) {
-      setSelectedItems(selectedItems.filter((i) => i !== item));
+  const handleSelected = (item: DropdownOption) => {
+    if (selectedItems.includes(item)) {
+      setSelectedItems(selectedItems.filter((i) => i.value !== item.value));
     } else {
       setSelectedItems([...selectedItems, item]);
     }
@@ -176,8 +179,8 @@ function DropdownMultiSelect({
                 <p className="flex items-center p-3 text-sm font-medium text-slate-600  dark:text-slate-200 ">
                   {/* show how many selected */}
                   {selectedItems.length === 0
-                    ? `Total: ${data.length}`
-                    : `${selectedItems.length} of ${data.length}`}
+                    ? `Total: ${options.length}`
+                    : `${selectedItems.length} of ${options.length}`}
                 </p>
                 <p
                   onClick={clearAllSelected}

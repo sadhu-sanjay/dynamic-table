@@ -18,12 +18,12 @@ export type Record = {
 };
 
 export type Field = {
-    type: "text" | "number" | "date" | "dropdown" | "boolean";
+    type: "text" | "number" | "date" | "select" | "boolean";
     label: string;
     name: string;
-    options?: string[];
     value?: string | number | boolean | string[];
     isRequired?: boolean;
     isDisabled?: boolean;
     isMulti?: boolean;
+    options: DropdownOption[];
 };

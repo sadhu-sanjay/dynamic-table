@@ -2,6 +2,7 @@ import { Field } from "~/models/types";
 import { Operators, useFilters } from "~/providers/filter-provider";
 import config from "~/filters-config.json";
 import { useState } from "react";
+import DropdownMultiSelect from "../Molecules/dropdown-multiSelect";
 const fields: Field[] = config as Field[];
 
 const DynamicFilters = (props: { fields: Field[] }) => {
@@ -26,9 +27,9 @@ const DynamicFilters = (props: { fields: Field[] }) => {
           <label htmlFor={field.name}>{field.label}</label>;
           switch (field.type) {
             case "number":
-              return <div>implent</div>;
+              return <div key={field.name}>implement</div>;
             case "date":
-              return <div>implent</div>;
+              return <div key={field.name}>implement</div>;
             case "text":
               return (
                 <input
@@ -41,8 +42,17 @@ const DynamicFilters = (props: { fields: Field[] }) => {
                   type={field.type}
                 />
               );
-            case "dropdown":
-              return <div key={field.name}>Sanjay</div>;
+            case "select":
+              return (
+                <DropdownMultiSelect
+                  label={field.name}
+                  options={field.options}
+                  onSelected={(selectedItems) => {
+                    console.log(selectedItems);
+                  }}
+                  key={index}
+                />
+              );
             default:
               return <div key={field.name}>Sanjay</div>;
           }
