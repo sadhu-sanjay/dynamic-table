@@ -3,9 +3,13 @@ import { Operators, useFilters } from "~/providers/filter-provider";
 import config from "~/filters-config.json";
 import { useState } from "react";
 import DropdownMultiSelect from "../Molecules/dropdown-multiSelect";
+import Searchbar from "../Molecules/searchbar";
 const fields: Field[] = config as Field[];
 
-const DynamicFilters = (props: { fields: Field[] }) => {
+const DynamicFilters = (props: {
+  fields: Field[];
+  onStateChange: (newState: any) => void;
+}) => {
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
 
   const handleSubmit = (e: any) => {
@@ -27,19 +31,22 @@ const DynamicFilters = (props: { fields: Field[] }) => {
           <label htmlFor={field.name}>{field.label}</label>;
           switch (field.type) {
             case "number":
-              return <div key={field.name}>implement</div>;
+              return (
+                <div id={field.name} key={field.name}>
+                  implement
+                </div>
+              );
             case "date":
-              return <div key={field.name}>implement</div>;
+              return (
+                <div id={field.name} key={field.name}>
+                  implement
+                </div>
+              );
             case "text":
               return (
-                <input
-                  name={field.name}
-                  value={formValues[field.name] || ""}
-                  onChange={() => console.log("change")}
-                  disabled={field.isDisabled}
-                  required={field.isRequired}
+                <Searchbar
                   key={index}
-                  type={field.type}
+                  onChange={(value) => console.log(value)}
                 />
               );
             case "select":

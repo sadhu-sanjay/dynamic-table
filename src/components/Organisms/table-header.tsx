@@ -1,7 +1,7 @@
 import Searchbar from "~/components/Molecules/searchbar";
 import PlusIcon from "~/icons/plus-icon";
 import ArrowDown from "~/icons/arrow-down";
-import { CategoryFilter, CategoryFilter2 } from "./category-filter";
+import { CategoryFilter, CategoryFilter2 } from "./dynamic-filter";
 import { useFilters } from "~/providers/filter-provider";
 import DropdownMultiSelect from "../Molecules/dropdown-multiSelect";
 import { DropdownOption } from "~/models/types";

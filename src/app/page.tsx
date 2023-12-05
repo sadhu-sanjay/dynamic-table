@@ -1,5 +1,5 @@
 "use client";
-import DynamicFilters from "~/components/Organisms/category-filter";
+import DynamicFilters from "~/components/Organisms/dynamic-filter";
 import { Heading, Section } from "~/components/sections/filters";
 import config from "~/filters-config.json";
 import { Field } from "~/models/types";
