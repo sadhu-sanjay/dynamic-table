@@ -5,7 +5,6 @@
     "label": "Title",
     "operator": "contains",
     "isSearchable": true,
-    
     "options": [
       { "value": "asia", "label": "Asia" },
       { "value": "europe", "label": "Europe" },
