@@ -16,3 +16,14 @@ export type Record = {
     address: string;
     description: string;
 };
+
+export type Field = {
+    type: "text" | "number" | "date" | "dropdown" | "boolean";
+    label: string;
+    name: string;
+    options?: string[];
+    value?: string | number | boolean | string[];
+    isRequired?: boolean;
+    isDisabled?: boolean;
+    isMulti?: boolean;
+};
