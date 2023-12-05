@@ -24,6 +24,7 @@ export type Field = {
     value?: string | number | boolean | string[];
     isRequired?: boolean;
     isDisabled?: boolean;
+    isSearchable?: boolean;
     isMulti?: boolean;
     options: DropdownOption[];
 };
