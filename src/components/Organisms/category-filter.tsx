@@ -51,6 +51,7 @@ const DynamicFilters = (props: { fields: Field[] }) => {
                     console.log(selectedItems);
                   }}
                   key={index}
+                  isLoading={false}
                 />
               );
             default:

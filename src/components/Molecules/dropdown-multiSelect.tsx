@@ -5,14 +5,15 @@ function DropdownMultiSelect({
   options,
   label,
   onSelected,
+  isLoading,
 }: {
   options: Array<DropdownOption>;
   label: string;
   onSelected: (selectedItems: DropdownOption[]) => void;
+  isLoading: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const clearAllSelected = () => onSelected([]);
 
@@ -69,7 +70,7 @@ function DropdownMultiSelect({
           disabled={isLoading}
           onClick={toggleDropdown}
           type="button"
-          className="py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
+          className=" rounded-sm py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
         >
           {selectedItems.length > 0 && (
             <span className="mr-2 inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full">
