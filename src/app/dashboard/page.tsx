@@ -1,11 +1,13 @@
 "use client";
 import { Table } from "~/components/sections/table";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { RECORDS_FETCH_URL } from "~/common/config";
-import { useEffect } from "react";
 import axios from "axios";
-import data from "~/../data.json";
 import { FilterProvider } from "~/providers/filter-provider";
+import { Field } from "~/models/field";
+import config from "~/filters-config.json";
+const fields: Field[] = config as Field[];
+fields.sort((a, b) => a.order - b.order);
 
 export default function Products() {
   const resp = useQuery({
@@ -14,8 +16,6 @@ export default function Products() {
   });
 
   return (
-    <FilterProvider>
-      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
-    </FilterProvider>
+    <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
   );
 }

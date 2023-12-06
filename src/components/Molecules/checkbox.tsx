@@ -12,7 +12,7 @@ const Checkbox: React.FC<{
   };
 
   return (
-    <div className=" border border-gray-200 rounded-lg dark:border-gray-600">
+    <div className=" border border-gray-200 rounded-4px dark:border-gray-600">
       <div className="flex items-center px-3">
         <input
           id={label}

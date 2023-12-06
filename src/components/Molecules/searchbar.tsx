@@ -1,26 +1,27 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { SearchIcon } from "~/icons/search-icon";
 import { myDebounce } from "~/common/utility";
+import ClearButton from "../Atoms/search-button";
 
 export type SearchBarProps = {
-  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
   debounchTime?: number;
   showSearchButton?: boolean;
 };
 
 const Searchbar: React.FC<SearchBarProps> = ({
-  onChange,
+  onSearch,
   debounchTime = 300,
   showSearchButton = true,
 }) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onChange(searchTerm);
+    onSearch(searchTerm);
   };
 
   const debouncedOnChange = useMemo(
-    () => myDebounce(onChange, debounchTime),
-    [debounchTime, onChange]
+    () => myDebounce(onSearch, debounchTime),
+    [debounchTime, onSearch]
   );
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,7 +56,8 @@ const Searchbar: React.FC<SearchBarProps> = ({
           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter product name"
           />
-          {/* {showSearchButton && (
+
+          {showSearchButton && (
             <button
               type="submit"
               className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 text-center
@@ -66,29 +68,8 @@ const Searchbar: React.FC<SearchBarProps> = ({
             >
               Search
             </button>
-          )} */}
-          {searchTerm && (
-            <button
-              type="button"
-              className="primary-bg rounded-full absolute right-0 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center "
-              onClick={() => setSearchTerm("")}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-zinc-700 dark:text-zinc-200 hover:text-gray-900 dark:hover:text-white"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
           )}
+          {/* {searchTerm && <ClearButton onClear={() => setSearchTerm("")} />} */}
         </div>
       </form>
     </div>
