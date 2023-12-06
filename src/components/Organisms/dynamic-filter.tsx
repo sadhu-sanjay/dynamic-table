@@ -9,15 +9,11 @@ import Checkbox from "../Molecules/checkbox";
 type FilterProps = {
   filterFields: Array<Field>;
   className?: string;
-  onSearch?: (term: string) => void;
-  filterProps?: Array<Field>;
 };
 
 const DynamicFiltersList: React.FC<FilterProps> = ({
   filterFields,
   className,
-  onSearch,
-  filterProps = [],
 }) => {
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
 
@@ -35,7 +31,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
 
   return (
     <>
-      <div className="flex gap-4 p-4 flex-row justify-between">
+      <div className={`${className} flex gap-4 p-4 flex-row justify-between`}>
         {filterFields.map((field, index) => {
           <label htmlFor={field.name}>{field.label}</label>;
           switch (field.type) {

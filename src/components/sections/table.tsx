@@ -52,7 +52,7 @@ export const Table: React.FC<TableProps> = ({
       )}
       {!error && !isFetching && data && data.length > 0 && (
         <>
-          <TableHeader onSearch={handleSearch} />
+          <TableHeader />
           <div className="w-full h-full overflow-auto ">
             <table className=" bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

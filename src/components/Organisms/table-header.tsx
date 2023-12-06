@@ -11,15 +11,9 @@ fields.sort((a, b) => a.order - b.order);
 
 type TableHeaderProps = {
   className?: string;
-  onSearch?: (term: string) => void;
-  filterProps?: Array<FieldOption>;
 };
 
-const TableHeader: React.FC<TableHeaderProps> = ({
-  className,
-  onSearch,
-  filterProps = [{ label: "Sanjay", value: "Goswami" }],
-}) => {
+const TableHeader: React.FC<TableHeaderProps> = ({ className }) => {
   return (
     <div className={`${className} w-full bg-white shadow-md dark:bg-gray-800`}>
       <div className="flex flex-col items-center justify-between space-y-3 md:flex-row md:space-y-0 md:space-x-4"></div>
