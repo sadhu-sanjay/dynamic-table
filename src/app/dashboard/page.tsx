@@ -13,6 +13,7 @@ export default function Products() {
   const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
+    refetchOnWindowFocus: false,
   });
 
   return (
