@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { IconChevronDown } from "~/icons/chevron-down-icon";
 import { SearchIcon } from "~/icons/search-icon";
 import { IconSpinner } from "~/icons/spinner-icon";
-import { DropdownOption } from "~/models/types";
+import { FieldOption } from "~/models/field";
 
 function DropdownMultiSelect({
   options,
@@ -10,17 +10,17 @@ function DropdownMultiSelect({
   onSelected,
   isLoading,
 }: {
-  options: Array<DropdownOption>;
+  options: Array<FieldOption>;
   label: string;
-  onSelected: (selectedItems: DropdownOption[]) => void;
+  onSelected: (selectedItems: FieldOption[]) => void;
   isLoading: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const clearAllSelected = () => onSelected([]);
+  const clearAllSelected = () => setSelectedItems([]);
 
-  const [selectedItems, setSelectedItems] = useState<DropdownOption[]>([]);
+  const [selectedItems, setSelectedItems] = useState<FieldOption[]>([]);
 
   const filteredItems =
     options.length > 0
@@ -33,7 +33,7 @@ function DropdownMultiSelect({
         })
       : [];
 
-  const handleSelected = (item: DropdownOption) => {
+  const handleSelected = (item: FieldOption) => {
     if (selectedItems.includes(item)) {
       setSelectedItems(selectedItems.filter((i) => i.value !== item.value));
     } else {
@@ -73,7 +73,7 @@ function DropdownMultiSelect({
           disabled={isLoading}
           onClick={toggleDropdown}
           type="button"
-          className=" rounded-sm py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
+          className=" rounded-4px py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
         >
           {selectedItems.length > 0 && (
             <span className="mr-2 inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full">
@@ -87,7 +87,7 @@ function DropdownMultiSelect({
 
         {isOpen && (
           <div
-            className="bg-pinkabsolute z-10 bg-white rounded-4pixel shadow w-60 dark:bg-gray-700"
+            className="bg-pink absolute z-10 bg-white rounded-4px shadow w-60 dark:bg-gray-700"
             id="dropdownSearch"
           >
             <div className="p-3">
@@ -109,7 +109,7 @@ function DropdownMultiSelect({
               </div>
             </div>
             <ul
-              className="h-[30rem] px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+              className="h-[20rem] px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownSearchButton"
             >
               {filteredItems.map((item) => (

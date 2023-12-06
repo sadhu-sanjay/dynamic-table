@@ -4,12 +4,12 @@ import ArrowDown from "~/icons/arrow-down";
 import { CategoryFilter, CategoryFilter2 } from "./dynamic-filter";
 import { useFilters } from "~/providers/filter-provider";
 import DropdownMultiSelect from "../Molecules/dropdown-multiSelect";
-import { DropdownOption } from "~/models/types";
+import { FieldOption } from "~/models/types";
 
 type TableHeaderProps = {
   className?: string;
   onSearch: (term: string) => void;
-  filterProps?: Array<DropdownOption>;
+  filterProps?: Array<FieldOption>;
 };
 
 export const TableHeader: React.FC<TableHeaderProps> = ({

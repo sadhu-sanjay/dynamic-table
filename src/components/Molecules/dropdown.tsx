@@ -1,35 +1,33 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { DropdownOption } from "~/models/types";
+import { FieldOption } from "~/models/field";
 import { useSearchParams } from "next/navigation";
 
 export function Dropdown({
   label,
   placeholder,
   onItemSelected,
-
+  options,
+  isLoading,
 }: {
   label: string;
   placeholder: string;
-  onItemSelected: (item: DropdownOption) => void;
+  onItemSelected: (item: FieldOption) => void;
+  options: FieldOption[];
+  isLoading: boolean;
 }) {
-  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState<DropdownOption[]>([]);
-  const [error, setError] = useState(null);
-  const [selectedItem, setSelectedItem] = useState<DropdownOption | undefined>(
+  const [selectedItem, setSelectedItem] = useState<FieldOption | undefined>(
     undefined
   );
   const filteredItems =
-    items.length > 0
-      ? items.filter((item) => {
+    options.length > 0
+      ? options.filter((item) => {
           if (!item) return;
           return item.label?.toLowerCase().includes(searchTerm.toLowerCase());
         })
       : [];
-  console.log("RENDER DROPDOWN", items);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -47,7 +45,7 @@ export function Dropdown({
     };
   }, []);
 
-  const doneButtonClicked = (item: DropdownOption) => {
+  const doneButtonClicked = (item: FieldOption) => {
     setSelectedItem(item);
     onItemSelected(item);
     setIsOpen(false);
@@ -55,7 +53,7 @@ export function Dropdown({
 
   return (
     <>
-      <div className="relative inline-block text-left" ref={dropdownRef}>
+      <div className=" relative inline-block text-left" ref={dropdownRef}>
         <LoadingButton
           isLoading={isLoading}
           label={label}
@@ -64,7 +62,7 @@ export function Dropdown({
         />
         {isOpen && (
           <div
-            className="absolute z-10 bg-white rounded-4pixel shadow w-60 dark:bg-gray-700"
+            className="absolute z-10 bg-white rounded-4px shadow w-60 dark:bg-gray-700"
             id="dropdownSearch"
           >
             <div className="p-3">
@@ -100,7 +98,7 @@ export function Dropdown({
               </div>
             </div>
             <ul
-              className="h-[30rem] px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+              className="h-[20rem] px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownSearchButton"
             >
               {filteredItems.map((item) => (
@@ -130,14 +128,14 @@ const LoadingButton: React.FC<{
   isLoading: boolean;
   clickHandler: () => void;
   label: string;
-  selectedItem?: DropdownOption;
+  selectedItem?: FieldOption;
 }> = ({ isLoading, clickHandler, label, selectedItem }) => {
   return (
     <button
       disabled={isLoading}
       type="button"
       onClick={clickHandler}
-      className="py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
+      className="rounded-4px py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-4pixel border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
     >
       {isLoading ? "Loading..." : selectedItem?.label || label}
       <svg

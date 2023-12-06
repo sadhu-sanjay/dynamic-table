@@ -49,12 +49,13 @@ const Searchbar: React.FC<SearchBarProps> = ({
             }}
             className="block w-full p-3 pl-10 text-sm 
           text-gray-900 border border-gray-300 rounded-full 
-          bg-gray-50 focus:ring-blue-500 focus:border-blue-500 
+          bg-gray-50 dark:bg-gray-700
+           focus:ring-blue-500 focus:border-blue-500 
           dark:bg-gray-703 dark:border-gray-600 dark:placeholder-gray-400 
           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter product name"
           />
-          {showSearchButton && (
+          {/* {showSearchButton && (
             <button
               type="submit"
               className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 text-center
@@ -65,29 +66,29 @@ const Searchbar: React.FC<SearchBarProps> = ({
             >
               Search
             </button>
-          )}
-          {/* {searchValue && (
-          <button
-            type="button"
-            className="primary-bg rounded-full absolute right-0 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center "
-            onClick={() => setSearchValue("")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-gray-200 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          )} */}
+          {searchTerm && (
+            <button
+              type="button"
+              className="primary-bg rounded-full absolute right-0 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center "
+              onClick={() => setSearchTerm("")}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </button>
-        )} */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-zinc-700 dark:text-zinc-200 hover:text-gray-900 dark:hover:text-white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </form>
     </div>

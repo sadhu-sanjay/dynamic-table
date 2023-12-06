@@ -1,10 +1,10 @@
-import { DropdownOption } from "../models/types";
+import { FieldOption } from "../models/types";
 import { Field } from "~/models/field";
 
 export const SERVER_URL = 'https://sanjaygoswami.online';
 export const RECORDS_FETCH_URL = `${SERVER_URL}/api/fake`;
 
-export const visibleColumns: Array<DropdownOption> = [
+export const visibleColumns: Array<FieldOption> = [
     { value: 'RecordKey', label: 'Record Key' },
     { value: 'Region', label: 'Region' },
     { value: 'Title', label: 'Title' },
