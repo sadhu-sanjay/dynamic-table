@@ -57,7 +57,7 @@
   {
     "order": 6,
     "name": "Tags",
-    "type": "text",
+    "type": "boolean",
     "label": "Tags",
     "operator": "contains"
   }
