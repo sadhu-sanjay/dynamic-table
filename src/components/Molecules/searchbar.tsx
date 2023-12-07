@@ -15,7 +15,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
   showSearchButton = true,
 }) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    // event.preventDefault();
     onSearch(searchTerm);
   };
 
@@ -69,7 +69,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
               Search
             </button>
           )}
-          {/* {searchTerm && <ClearButton onClear={() => setSearchTerm("")} />} */}
+          {searchTerm && <ClearButton onClear={() => setSearchTerm("")} />}
         </div>
       </form>
     </div>

@@ -39,6 +39,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
               return (
                 <Searchbar
                   key={index}
+                  showSearchButton={false}
                   onSearch={(value) => {
                     setSelectedFilters([
                       [field.name, Operators.contains, value],
@@ -52,14 +53,11 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
               return <div key={index}>implement</div>;
             case "boolean":
               return (
-                <>
-                  <label htmlFor={field.name}>{field.label}</label>
-                  <Checkbox
-                    key={index}
-                    label={field.name}
-                    onChange={(value) => {}}
-                  />
-                </>
+                <Checkbox
+                  key={index}
+                  label={field.name}
+                  onChange={(value) => {}}
+                />
               );
             case "select":
               return (

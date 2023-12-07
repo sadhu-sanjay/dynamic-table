@@ -6,7 +6,7 @@ import SortIcon from "~/icons/sort-icon";
 import EmptyList from "../Organisms/empty-list";
 import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
-import { useFilters } from "~/providers/filter-provider";
+import { Operators, useFilters } from "~/providers/filter-provider";
 
 type TableProps = {
   data: Array<Object>;
@@ -31,15 +31,18 @@ export const Table: React.FC<TableProps> = ({
   const { selectedFilters } = useFilters();
 
   useEffect(() => {
-    // TODO: implement Search filter
-    // const filteredData: Array<Object> = data.filter((row) => {
-    //   return Object.entries(selectedFilters).every(([key, value]) => {
-    //     return (row as any)[key] === value;
-    //   });
-    // });
+    const newData =
+      data &&
+      data.filter((row) => {
+        return selectedFilters.every(([key, operator, value]) => {
+          if (operator === Operators.contains) {
+            console.log("contains");
+          }
+        });
+      });
 
     console.log("selectedFilters Change", selectedFilters);
-  }, [selectedFilters]);
+  }, [data, selectedFilters]);
 
   const handleSort = (key: string) => {};
 
@@ -63,6 +66,7 @@ export const Table: React.FC<TableProps> = ({
             <table className=" bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
+                  <th className="px-6 py-3 max-w-xs overflow-hidden">No.</th>
                   {data &&
                     Object.keys(data[0]).map((key, index) => (
                       <th
@@ -92,10 +96,17 @@ export const Table: React.FC<TableProps> = ({
               <tbody>
                 {data &&
                   data.map((row, index) => (
+                    // add a column for showing row number
                     <tr
                       key={index}
                       className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"
                     >
+                      <td
+                        key={index}
+                        className="px-6 py-3 max-w-xs overflow-hidden"
+                      >
+                        {index + 1}
+                      </td>
                       {Object.keys(data[0]).map((key, index) => (
                         <td
                           key={index}
