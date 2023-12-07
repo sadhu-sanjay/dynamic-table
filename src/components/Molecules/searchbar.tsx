@@ -42,6 +42,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
             <SearchIcon />
           </div>
           <input
+            autoComplete="off"
             type="search"
             id="default-search"
             value={searchTerm}
