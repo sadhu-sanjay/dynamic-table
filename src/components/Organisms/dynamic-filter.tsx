@@ -38,7 +38,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
             case "search":
               return (
                 <Searchbar
-                placeHolder={field.label}
+                  placeHolder={field.label}
                   key={index}
                   showSearchButton={false}
                   onSearch={(value) => {
@@ -77,7 +77,9 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
                   label={field.name}
                   options={field.options}
                   onSelected={(selectedItems) => {
-                    console.log(selectedItems);
+                    setSelectedFilters([
+                      [field.name, Operators.in, selectedItems],
+                    ]);
                   }}
                   key={index}
                   isLoading={false}

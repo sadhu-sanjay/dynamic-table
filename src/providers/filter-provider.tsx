@@ -1,9 +1,11 @@
 import { useState, PropsWithChildren, createContext, useContext } from "react";
+import { FieldOption } from "~/models/field";
 
 export enum Operators {
   equal = "eq",
   not_equal = "neq",
   contains = "cont",
+  in = "in",
   not_contains = "ncont",
   greater_than = "gt",
   less_than = "lt",
@@ -11,7 +13,7 @@ export enum Operators {
   after = "after",
 }
 
-export type FilterValue = string | number | boolean | Date;
+export type FilterValue = string | number | boolean | Date | Array<FieldOption>;
 
 export type FilterCondition = [string, Operators, FilterValue];
 

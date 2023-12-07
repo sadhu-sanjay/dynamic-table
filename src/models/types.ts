@@ -1,5 +1,4 @@
 
-
 export type SortConfig = {
     key: string;
     direction: string;
