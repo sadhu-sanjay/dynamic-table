@@ -17,6 +17,8 @@ export default function Products() {
   });
 
   return (
-    <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
+    <FilterProvider>
+      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
+    </FilterProvider>
   );
 }

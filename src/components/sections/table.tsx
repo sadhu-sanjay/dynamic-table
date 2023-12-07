@@ -1,11 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableHeader from "~/components/Organisms/table-header";
 import { SortConfig } from "~/models/types";
 import SortIcon from "~/icons/sort-icon";
 import EmptyList from "../Organisms/empty-list";
 import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
+import { useFilters } from "~/providers/filter-provider";
 
 type TableProps = {
   data: Array<Object>;
@@ -27,13 +28,18 @@ export const Table: React.FC<TableProps> = ({
     key: "",
     direction: "",
   });
+  const { selectedFilters } = useFilters();
 
-  const handleSearch = (term: string) => {
-    const filtered = data.filter((row: any) => {
-      return row.name.toLowerCase().includes(term.toLowerCase());
-    });
-    setFilteredData(filtered);
-  };
+  useEffect(() => {
+    // TODO: implement Search filter
+    // const filteredData: Array<Object> = data.filter((row) => {
+    //   return Object.entries(selectedFilters).every(([key, value]) => {
+    //     return (row as any)[key] === value;
+    //   });
+    // });
+
+    console.log("selectedFilters Change", selectedFilters);
+  }, [selectedFilters]);
 
   const handleSort = (key: string) => {};
 

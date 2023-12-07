@@ -16,6 +16,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
   className,
 }) => {
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
+  const { setSelectedFilters } = useFilters();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -33,14 +34,15 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
     <>
       <div className={`${className} flex gap-4 p-4 flex-row justify-between`}>
         {filterFields.map((field, index) => {
-          <label htmlFor={field.name}>{field.label}</label>;
           switch (field.type) {
             case "search":
               return (
                 <Searchbar
                   key={index}
                   onSearch={(value) => {
-                    console.log(value);
+                    setSelectedFilters([
+                      [field.name, Operators.contains, value],
+                    ]);
                   }}
                 />
               );
@@ -50,11 +52,14 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
               return <div key={index}>implement</div>;
             case "boolean":
               return (
-                <Checkbox
-                  key={index}
-                  label={field.name}
-                  onChange={(value) => {}}
-                />
+                <>
+                  <label htmlFor={field.name}>{field.label}</label>
+                  <Checkbox
+                    key={index}
+                    label={field.name}
+                    onChange={(value) => {}}
+                  />
+                </>
               );
             case "select":
               return (
