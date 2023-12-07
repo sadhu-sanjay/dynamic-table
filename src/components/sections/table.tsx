@@ -33,15 +33,18 @@ export const Table: React.FC<TableProps> = ({
   useEffect(() => {
     const newData =
       data &&
-      data.filter((row) => {
+      data.filter((row: any) => {
         return selectedFilters.every(([key, operator, value]) => {
           if (operator === Operators.contains) {
-            console.log("contains");
+            console.log("row[key]", row[key], "key", key);
+            return (
+              row[key] &&
+              row[key].toLowerCase().replace(/\s/g, "").includes(value)
+            );
           }
         });
       });
-
-    console.log("selectedFilters Change", selectedFilters);
+    setFilteredData(newData);
   }, [data, selectedFilters]);
 
   const handleSort = (key: string) => {};
@@ -94,8 +97,8 @@ export const Table: React.FC<TableProps> = ({
                 </tr>
               </thead>
               <tbody>
-                {data &&
-                  data.map((row, index) => (
+                {filteredData &&
+                  filteredData.map((row, index) => (
                     // add a column for showing row number
                     <tr
                       key={index}

@@ -5,11 +5,13 @@ import ClearButton from "../Atoms/search-button";
 
 export type SearchBarProps = {
   onSearch: (value: string) => void;
+  placeHolder?: string;
   debounchTime?: number;
   showSearchButton?: boolean;
 };
 
 const Searchbar: React.FC<SearchBarProps> = ({
+  placeHolder = "Search",
   onSearch,
   debounchTime = 300,
   showSearchButton = true,
@@ -54,7 +56,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
            focus:ring-blue-500 focus:border-blue-500 
           dark:bg-gray-703 dark:border-gray-600 dark:placeholder-gray-400 
           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter product name"
+            placeholder={placeHolder}
           />
 
           {showSearchButton && (

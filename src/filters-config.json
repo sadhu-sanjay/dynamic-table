@@ -86,9 +86,9 @@
   },
   {
     "order": 1,
-    "name": "SearchString",
+    "name": "Title",
     "type": "search",
-    "label": "Search String",
+    "label": "Search Records...",
     "operator": "contains"
   },
   {

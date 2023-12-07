@@ -38,6 +38,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
             case "search":
               return (
                 <Searchbar
+                placeHolder={field.label}
                   key={index}
                   showSearchButton={false}
                   onSearch={(value) => {
