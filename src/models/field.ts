@@ -14,6 +14,7 @@ type FieldCategory = "table" | "filter" | "form";
 
 export type Field = {
     // type: "text" | "number" | "date" | "select" | "boolean" | "multi-select" | "radio" | "checkbox" | "button" | "color" | "datetime-local" | "email" | "image" | "month" | "range" | "search" | "tel" | "url" | "week" | "file";
+    filterKey: string;
     order: number;
     type: "search" | "number" | "date" | "select" | "boolean" | "multi-select";
     label: string;

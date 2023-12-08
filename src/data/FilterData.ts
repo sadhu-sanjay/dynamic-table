@@ -6,6 +6,7 @@ const filterConfig: Array<Field> = [
     type: "search",
     label: "Search",
     name: "search",
+    filterKey: "Title",
     value: "",
     isRequired: false,
     isDisabled: false,
@@ -19,6 +20,7 @@ const filterConfig: Array<Field> = [
     type: "multi-select",
     label: "Status",
     name: "status",
+    filterKey: "status",
     value: "",
     isRequired: false,
     isDisabled: false,
@@ -28,7 +30,6 @@ const filterConfig: Array<Field> = [
       { value: "all", label: "All" },
       { value: "active", label: "Active" },
       { value: "inactive", label: "Inactive" }
-
     ],
     category: "filter"
   },
@@ -37,6 +38,7 @@ const filterConfig: Array<Field> = [
     type: "select",
     label: "Type",
     name: "type",
+    filterKey: "type",
     value: "",
     isRequired: false,
     isDisabled: false,
@@ -55,6 +57,7 @@ const filterConfig: Array<Field> = [
     label: "Category",
     name: "category",
     value: "",
+    filterKey: "category",
     isRequired: false,
     isDisabled: false,
     isSearchable: false,
@@ -72,6 +75,7 @@ const filterConfig: Array<Field> = [
     label: "Priority",
     name: "priority",
     value: "",
+    filterKey: "priority",
     isRequired: false,
     isDisabled: false,
     isSearchable: false,

@@ -42,8 +42,9 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
                   key={index}
                   showSearchButton={false}
                   onSearch={(value) => {
+                    console.log("Sanjay ", field.filterKey, value);
                     setSelectedFilters([
-                      [field.name, Operators.contains, value],
+                      [field.filterKey, Operators.contains, value],
                     ]);
                   }}
                 />
@@ -78,7 +79,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
                   options={field.options}
                   onSelected={(selectedItems) => {
                     setSelectedFilters([
-                      [field.name, Operators.in, selectedItems],
+                      [field.filterKey, Operators.in, selectedItems],
                     ]);
                   }}
                   key={index}
