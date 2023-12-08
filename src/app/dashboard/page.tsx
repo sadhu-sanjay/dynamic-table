@@ -5,9 +5,8 @@ import { RECORDS_FETCH_URL } from "~/common/config";
 import axios from "axios";
 import { FilterProvider } from "~/providers/filter-provider";
 import { Field } from "~/models/field";
-import config from "~/filters-config.json";
-const fields: Field[] = config as Field[];
-fields.sort((a, b) => a.order - b.order);
+import filtersData from "~/data/FilterData";
+filtersData.sort((a, b) => a.order - b.order);
 
 export default function Products() {
   const resp = useQuery({

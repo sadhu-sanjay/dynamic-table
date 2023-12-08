@@ -5,7 +5,7 @@ import { useFilters } from "~/providers/filter-provider";
 import DropdownMultiSelect from "../Molecules/dropdown-multiSelect";
 import DynamicFilters from "./dynamic-filter";
 import { Field, FieldOption } from "~/models/field";
-import filterFields from "~/filters-config.json";
+import filterFields from "~/data/FilterData";
 const fields: Field[] = filterFields as Field[];
 fields.sort((a, b) => a.order - b.order);
 

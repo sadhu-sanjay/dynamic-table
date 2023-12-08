@@ -16,7 +16,7 @@ const filterConfig: Array<Field> = [
   },
   {
     order: 2,
-    type: "select",
+    type: "multi-select",
     label: "Status",
     name: "status",
     value: "",
@@ -28,6 +28,7 @@ const filterConfig: Array<Field> = [
       { value: "all", label: "All" },
       { value: "active", label: "Active" },
       { value: "inactive", label: "Inactive" }
+
     ],
     category: "filter"
   },
@@ -84,3 +85,4 @@ const filterConfig: Array<Field> = [
 
 ];
 
+export default filterConfig;
