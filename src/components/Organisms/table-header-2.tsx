@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { SearchIcon } from "~/icons/search-icon";
 import searchbar from "../Molecules/searchbar";
+import ClearButton from "../Atoms/search-button";
 
 const TableHeader2: React.FC = () => {
   return (
@@ -171,7 +172,7 @@ const TableHeader2: React.FC = () => {
                         id="asus"
                         type="checkbox"
                         value=""
-                        checked
+                        defaultChecked
                         className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       />
                       <label
@@ -233,7 +234,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
             type="text"
             id="simple-search"
             className="rounded-full block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            placeholder="Search"
+            placeholder={placeHolder}
             required
             value={searchTerm}
             onChange={(e) => {
@@ -241,6 +242,19 @@ const Searchbar: React.FC<SearchBarProps> = ({
               setSearchTerm(value);
             }}
           />
+          {showSearchButton && (
+            <button
+              type="submit"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 text-center
+          text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
+          hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
+          dark:focus:ring-blue-800 shadow-sm shadow-blue-500/50 dark:shadow-sm 
+          dark:shadow-blue-800/80 font-medium text-xs "
+            >
+              Search
+            </button>
+          )}
+          {searchTerm && <ClearButton onClear={() => setSearchTerm("")} />}
         </div>
       </form>
     </div>

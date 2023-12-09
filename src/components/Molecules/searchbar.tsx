@@ -60,19 +60,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
             placeholder={placeHolder}
           />
 
-          {showSearchButton && (
-            <button
-              type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 text-center
-          text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
-          hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
-          dark:focus:ring-blue-800 shadow-sm shadow-blue-500/50 dark:shadow-sm 
-          dark:shadow-blue-800/80 font-medium text-xs "
-            >
-              Search
-            </button>
-          )}
-          {searchTerm && <ClearButton onClear={() => setSearchTerm("")} />}
+          
         </div>
       </form>
     </div>

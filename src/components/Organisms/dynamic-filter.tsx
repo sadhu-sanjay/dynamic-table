@@ -32,7 +32,7 @@ const DynamicFiltersList: React.FC<FilterProps> = ({
 
   return (
     <>
-      <div className={`${className} flex gap-4 p-4 flex-row justify-around`}>
+      <div className={`${className} flex gap-4 p-4 flex-row justify-between`}>
         {filterFields.map((field, index) => {
           switch (field.type) {
             case "search":
