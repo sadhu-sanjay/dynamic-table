@@ -7,6 +7,8 @@ import EmptyList from "../Organisms/empty-list";
 import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
 import { Operators, useFilters } from "~/providers/filter-provider";
+import { FieldOption } from "~/models/field";
+import TableHeader2 from "../Organisms/table-header-2";
 
 type TableProps = {
   data: Array<Object>;
@@ -40,6 +42,8 @@ export const Table: React.FC<TableProps> = ({
               row[key] &&
               row[key].toLowerCase().replace(/\s/g, "").includes(value)
             );
+          } else if (operator === Operators.in) {
+            return row[key] && (value as Array<FieldOption>).includes(row[key]);
           }
         });
       });

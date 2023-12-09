@@ -1,5 +1,4 @@
 import { FieldOption } from "~/models/field";
-import { Field } from "~/models/field";
 
 export const SERVER_URL = 'https://sanjaygoswami.online';
 export const RECORDS_FETCH_URL = `${SERVER_URL}/api/fake`;

@@ -109,7 +109,7 @@ function DropdownMultiSelect({
               </div>
             </div>
             <ul
-              className="h-[20rem] px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+              className="max-h-40 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownSearchButton"
             >
               {filteredItems.map((item) => (

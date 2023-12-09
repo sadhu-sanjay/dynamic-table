@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { RECORDS_FETCH_URL } from "~/common/config";
 import axios from "axios";
 import { FilterProvider } from "~/providers/filter-provider";
-import { Field } from "~/models/field";
 import filtersData from "~/data/FilterData";
 filtersData.sort((a, b) => a.order - b.order);
 

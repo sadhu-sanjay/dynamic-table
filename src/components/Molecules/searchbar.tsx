@@ -51,7 +51,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
               setSearchTerm(value);
               debouncedOnChange(value);
             }}
-            className="block w-full p-3 pl-10 text-sm 
+            className="block w-full p-2 pl-10 text-sm 
           text-gray-900 border border-gray-300 rounded-full 
           bg-gray-50 dark:bg-gray-700
            focus:ring-blue-500 focus:border-blue-500 
