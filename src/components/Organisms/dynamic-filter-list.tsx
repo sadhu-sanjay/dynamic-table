@@ -15,6 +15,7 @@ const DynamicFilterList: React.FC<FilterProps> = ({
   filterFields,
   className,
 }) => {
+
   const { setSelectedFilters } = useFilters();
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
 
@@ -35,10 +36,8 @@ const DynamicFilterList: React.FC<FilterProps> = ({
       className={`${className} bg-gray-50 dark:bg-gray-900 flex items-center`}
     >
       <div className="max-w-screen-xl  mx-auto w-full">
-        {/* Start coding here */}
         <div className="relative bg-white shadow-md dark:bg-gray-800">
           <div className="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
-            <Searchbar onSubmit={(value) => console.log(value)} />
             {filterFields.map((field, index) => {
               switch (field.type) {
                 case "search":

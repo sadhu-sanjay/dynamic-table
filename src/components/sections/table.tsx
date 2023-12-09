@@ -8,7 +8,6 @@ import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
 import { Operators, useFilters } from "~/providers/filter-provider";
 import { FieldOption } from "~/models/field";
-import TableHeader2 from "../Organisms/table-header-2";
 
 type TableProps = {
   data: Array<Object>;
