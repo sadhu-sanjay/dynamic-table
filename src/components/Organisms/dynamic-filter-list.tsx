@@ -81,8 +81,12 @@ const DynamicFilterList: React.FC<FilterProps> = ({
                       label={field.name}
                       options={field.options}
                       onSelected={(selectedItems) => {
+                        const mappedItems = selectedItems.map(
+                          (item) => item.label
+                        );
+                        console.log(mappedItems);
                         setSelectedFilters([
-                          [field.filterKey, Operators.in, selectedItems],
+                          [field.filterKey, Operators.in, mappedItems],
                         ]);
                       }}
                       key={index}

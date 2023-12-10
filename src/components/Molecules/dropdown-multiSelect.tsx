@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IconChevronDown } from "~/icons/chevron-down-icon";
 import { SearchIcon } from "~/icons/search-icon";
-import { IconSpinner } from "~/icons/spinner-icon";
+import { SpinnerIcon } from "~/icons/spinner-icon";
 import { FieldOption } from "~/models/field";
 
 function DropdownMultiSelect({
@@ -82,7 +82,7 @@ function DropdownMultiSelect({
           )}
           {isLoading ? `Loading...` : label}
           {IconChevronDown(isLoading)}
-          {IconSpinner(isLoading)}
+          {SpinnerIcon(isLoading)}
         </button>
 
         {isOpen && (
@@ -109,7 +109,7 @@ function DropdownMultiSelect({
               </div>
             </div>
             <ul
-              className="max-h-40 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+              className="max-h-44 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownSearchButton"
             >
               {filteredItems.map((item) => (

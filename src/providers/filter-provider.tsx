@@ -13,7 +13,7 @@ export enum Operators {
   after = "after",
 }
 
-export type FilterValue = string | number | boolean | Date | Array<FieldOption>;
+export type FilterValue = string | number | boolean | Date | Array<String> ;
 
 export type FilterCondition = [string, Operators, FilterValue];
 

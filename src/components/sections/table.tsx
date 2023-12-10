@@ -8,6 +8,7 @@ import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
 import { Operators, useFilters } from "~/providers/filter-provider";
 import { FieldOption } from "~/models/field";
+import { Paginator } from "../Organisms/Paginator";
 
 type TableProps = {
   data: Array<Object>;
@@ -39,7 +40,7 @@ export const Table: React.FC<TableProps> = ({
           if (operator === Operators.contains) {
             return row[key].toLowerCase().replace(/\s/g, "").includes(value);
           } else if (operator === Operators.in) {
-            return row[key] && (value as Array<FieldOption>).includes(row[key]);
+            return row[key] && (value as Array<string>).includes(row[key]);
           }
         });
       });
@@ -51,8 +52,9 @@ export const Table: React.FC<TableProps> = ({
   return (
     <div
       className="relative shadow-md sm:rounded-lg 
-      h-[92%] w-[96%] bg-white dark:bg-gray-800
-      flex flex-col rounded-4px overflow-clip "
+      h-full w-full
+       bg-white dark:bg-gray-800
+      flex flex-col "
     >
       {isFetching && <Spinner message="Please wait ..." />}
       {error && (
@@ -122,6 +124,7 @@ export const Table: React.FC<TableProps> = ({
                   ))}
               </tbody>
             </table>
+
             {filteredData && filteredData.length < 1 && (
               <EmptyList
                 title="No records found"
@@ -129,6 +132,11 @@ export const Table: React.FC<TableProps> = ({
               />
             )}
           </div>
+          <Paginator
+            isLoading={isFetching}
+            filtered={filteredData?.length}
+            total={data?.length}
+          />
         </>
       )}
     </div>

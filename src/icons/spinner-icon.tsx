@@ -1,4 +1,4 @@
-export function IconSpinner(isLoading: boolean) {
+export function SpinnerIcon(isLoading: boolean) {
   return <svg
     aria-hidden="true"
     role="status"
