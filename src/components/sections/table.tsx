@@ -37,10 +37,7 @@ export const Table: React.FC<TableProps> = ({
       data.filter((row: any) => {
         return selectedFilters.every(([key, operator, value]) => {
           if (operator === Operators.contains) {
-            return (
-              row[key] &&
-              row[key].toLowerCase().replace(/\s/g, "").includes(value)
-            );
+            return row[key].toLowerCase().replace(/\s/g, "").includes(value);
           } else if (operator === Operators.in) {
             return row[key] && (value as Array<FieldOption>).includes(row[key]);
           }
