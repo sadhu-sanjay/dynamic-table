@@ -9,7 +9,7 @@ export default function EmptyList({
   subtitle?: string;
 }) {
   return (
-    <section className="flex justify-center w-full h-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-100 dark:bg-gray-800">
+    <section className="flex justify-center  py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-100 dark:bg-gray-800">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 items-center">
           <div className=" flex flex-col items-center  gap-4 text-center">

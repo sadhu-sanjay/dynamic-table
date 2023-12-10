@@ -40,7 +40,7 @@ export const Table: React.FC<TableProps> = ({
           if (operator === Operators.contains) {
             return row[key].toLowerCase().replace(/\s/g, "").includes(value);
           } else if (operator === Operators.in) {
-            return row[key] && (value as Array<string>).includes(row[key]);
+            return (value as Array<string>).includes(row[key]);
           }
         });
       });
