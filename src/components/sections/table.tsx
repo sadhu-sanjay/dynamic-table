@@ -52,8 +52,8 @@ export const Table: React.FC<TableProps> = ({
   return (
     <div
       className="relative shadow-md sm:rounded-lg 
-      h-full w-full
-       bg-white dark:bg-gray-800
+      w-full h-full overflow-hidden
+       bg-red-900 dark:bg-gray-800
       flex flex-col "
     >
       {isFetching && <Spinner message="Please wait ..." />}
@@ -106,17 +106,11 @@ export const Table: React.FC<TableProps> = ({
                       key={index}
                       className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900"
                     >
-                      <td
-                        key={index}
-                        className="px-6 py-3 max-w-xs overflow-hidden"
-                      >
+                      <td key={index} className="px-6 py-3 ">
                         {index + 1}
                       </td>
                       {Object.keys(data[0]).map((key, index) => (
-                        <td
-                          key={index}
-                          className="px-6 py-3 max-w-xs overflow-hidden"
-                        >
+                        <td key={index} className="px-6 py-3 ">
                           {(row as any)[key]}
                         </td>
                       ))}

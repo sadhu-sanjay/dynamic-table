@@ -34,7 +34,7 @@ const DynamicFilterList: React.FC<FilterProps> = ({
     <section
       className={`${className} bg-gray-50 dark:bg-gray-900 flex items-center`}
     >
-      <div className=" mx-auto w-full">
+      <div className="mx-auto w-full">
         <div className="relative bg-white shadow-md dark:bg-gray-800">
           <div className="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
             {filterFields.map((field, index) => {

@@ -5,6 +5,7 @@ import { RECORDS_FETCH_URL } from "~/common/config";
 import axios from "axios";
 import { FilterProvider } from "~/providers/filter-provider";
 import filtersData from "~/data/FilterData";
+import TableHeader from "~/components/Organisms/table-header";
 filtersData.sort((a, b) => a.order - b.order);
 
 export default function Products() {
@@ -15,8 +16,6 @@ export default function Products() {
   });
 
   return (
-    <FilterProvider>
-      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
-    </FilterProvider>
+    <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
   );
 }
