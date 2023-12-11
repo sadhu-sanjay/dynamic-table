@@ -20,8 +20,8 @@ type TableProps = {
 
 export const Table: React.FC<TableProps> = ({
   data,
-  error,
-  isFetching,
+  error = null,
+  isFetching = false,
   pagination = true,
   search = true,
 }) => {
@@ -52,23 +52,25 @@ export const Table: React.FC<TableProps> = ({
   return (
     <div
       className="relative shadow-md sm:rounded-lg 
-      w-full h-full overflow-hidden
-       bg-red-900 dark:bg-gray-800
+      w-full h-full overflow-auto
+      bg-blue-100
+      dark:bg-gray-800
       flex flex-col "
     >
-      {isFetching && <Spinner message="Please wait ..." />}
+      {/* {isFetching && <Spinner message="Please wait ..." />}
       {error && (
         <EmptyList title="Error loading data" subtitle={error.message} />
       )}
       {!error && !isFetching && data?.length < 1 && (
         <EmptyList title="No records found" subtitle={NO_RECORDS_TRY_AGAIN} />
       )}
+      */}
       {!error && !isFetching && data && data.length > 0 && (
         <>
-          <TableHeader />
+          {/* <TableHeader /> */}
           <div className="w-full h-full overflow-auto ">
-            <table className="w-full bg-blue-700 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              {/* <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th className="px-6 py-3 max-w-xs overflow-hidden">No.</th>
                   {data &&
@@ -96,8 +98,8 @@ export const Table: React.FC<TableProps> = ({
                       </th>
                     ))}
                 </tr>
-              </thead>
-              <tbody>
+              </thead> */}
+              <tbody className="overflow-auto">
                 {filteredData &&
                   filteredData.length > 0 &&
                   filteredData.map((row, index) => (
@@ -117,20 +119,20 @@ export const Table: React.FC<TableProps> = ({
                     </tr>
                   ))}
               </tbody>
+              {/* <Paginator
+                isLoading={isFetching}
+                filtered={filteredData?.length}
+                total={data?.length}
+              /> */}
             </table>
 
-            {filteredData && filteredData.length < 1 && (
+            {/* {filteredData && filteredData.length < 1 && (
               <EmptyList
                 title="No records found"
                 subtitle={NO_RECORDS_TRY_AGAIN}
               />
-            )}
+            )} */}
           </div>
-          <Paginator
-            isLoading={isFetching}
-            filtered={filteredData?.length}
-            total={data?.length}
-          />
         </>
       )}
     </div>

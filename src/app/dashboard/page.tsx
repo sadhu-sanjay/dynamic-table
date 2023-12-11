@@ -9,6 +9,7 @@ import TableHeader from "~/components/Organisms/table-header";
 filtersData.sort((a, b) => a.order - b.order);
 
 export default function Products() {
+
   const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),

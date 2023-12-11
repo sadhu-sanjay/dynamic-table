@@ -1,6 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { Table } from "~/components/sections/table";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { RECORDS_FETCH_URL } from "~/common/config";
 
 export default function Home() {
   const router = useRouter();
@@ -8,6 +12,13 @@ export default function Home() {
   useEffect(() => {
     router.push("/dashboard");
   }, [router]);
+
+  const resp = useQuery({
+    queryKey: ["data"],
+    queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
+
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <main className="flex flex-col items-stretch min-h-screen">
