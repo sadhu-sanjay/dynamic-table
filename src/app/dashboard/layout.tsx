@@ -29,7 +29,6 @@ export default function DashboardLayout({
             {/* Logo */}
             <div className="flex h-[60px] items-center px-6">
               <a className="flex items-center gap-2 font-semibold" href="#">
-                {/* <LogoBox /> */}
                 <Image alt="logo" src="/logo.png" width={24} height={24} />
                 <span className="">Acme Inc</span>
               </a>
