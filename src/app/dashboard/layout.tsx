@@ -4,6 +4,7 @@ import { useState } from "react";
 import TableHeader from "~/components/Organisms/table-header";
 import { Table } from "~/components/sections/table";
 import AnalyticsIcon from "~/icons/analytics-icon";
+import BoxIcon from "~/icons/box-icon";
 import CartIcon from "~/icons/cart-icon";
 import FeedbackIcon from "~/icons/feedback-icon";
 import IconHome from "~/icons/icon-home";
@@ -44,6 +45,13 @@ export default function DashboardLayout({
                   Home
                 </a>
                 <a
+                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  href="#"
+                >
+                  <BoxIcon />
+                  Products
+                </a>
+                <a
                   className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
                   href="#"
                 >
@@ -68,6 +76,31 @@ export default function DashboardLayout({
                 </a>
               </nav>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-center justify-between px-4 py-2">
+            <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
+              <a className="lg:hidden" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="h-6 w-6"
+                >
+                  <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                  <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+                  <path d="M12 3v6"></path>
+                </svg>
+                <span className="sr-only">Home</span>
+              </a>
+            </header>
           </div>
         </div>
       </div>
