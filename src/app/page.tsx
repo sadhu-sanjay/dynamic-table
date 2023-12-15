@@ -16,7 +16,6 @@ export default function Home() {
   const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
-
     refetchOnWindowFocus: false,
   });
 

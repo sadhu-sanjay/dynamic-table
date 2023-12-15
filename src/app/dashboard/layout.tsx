@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import TableHeader from "~/components/Organisms/table-header";
 import { Table } from "~/components/sections/table";
@@ -24,11 +25,12 @@ export default function DashboardLayout({
         {/* Nav */}
         <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
           {/* Side Conatiner */}
-          <div className="flex flex-col  gap-2">
+          <div className="flex flex-col gap-2">
             {/* Logo */}
             <div className="flex h-[60px] items-center px-6">
               <a className="flex items-center gap-2 font-semibold" href="#">
-                <LogoBox />
+                {/* <LogoBox /> */}
+                <Image alt="logo" src="/logo.png" width={24} height={24} />
                 <span className="">Acme Inc</span>
               </a>
             </div>
