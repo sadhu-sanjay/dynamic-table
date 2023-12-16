@@ -10,7 +10,7 @@ type TableHeaderProps = {
 
 const TableHeader: React.FC<TableHeaderProps> = ({ className }) => {
   return (
-    <div className={`${className} w-full bg-white shadow-md dark:bg-gray-800`}>
+    <div className={`${className} w-full bg-white shadow-sm dark:bg-gray-800`}>
       <DynamicFilterList filterFields={fields} />
     </div>
   );

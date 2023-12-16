@@ -1,6 +1,9 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
+import { RECORDS_FETCH_URL } from "~/common/config";
 import Searchbar from "~/components/Molecules/searchbar";
 import TableHeader from "~/components/Organisms/table-header";
 import { Table } from "~/components/sections/table";
@@ -22,9 +25,15 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const resp = useQuery({
+    queryKey: ["data"],
+    queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
+    refetchOnWindowFocus: false,
+  });
+
   return (
     <FilterProvider>
-      <div className="p-8 box-border grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+      <div className=" box-border grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
         {/* Nav */}
         <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
           {/* Side Conatiner */}
@@ -111,11 +120,11 @@ export default function DashboardLayout({
             {/* Container */}
             <div className="border shadow-sm rounded-lg p-2">
               <div className="relative w-full overflow-auto">
-                <table className="w-full caption-bottom text-sm">
-                  <thead className="[_tr]:border-b">
-                    
-                  </thead>
-                </table>
+                <Table
+                  isFetching={resp.isFetching}
+                  error={resp.error}
+                  data={resp.data}
+                />
               </div>
             </div>
           </main>

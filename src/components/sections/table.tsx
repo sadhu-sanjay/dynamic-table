@@ -55,22 +55,21 @@ export const Table: React.FC<TableProps> = ({
       w-full h-full overflow-auto
       bg-blue-100
       dark:bg-gray-800
-      flex flex-col "
+      flex flex-col"
     >
-      {/* {isFetching && <Spinner message="Please wait ..." />}
+      {isFetching && <Spinner message="Please wait ..." />}
       {error && (
         <EmptyList title="Error loading data" subtitle={error.message} />
       )}
       {!error && !isFetching && data?.length < 1 && (
         <EmptyList title="No records found" subtitle={NO_RECORDS_TRY_AGAIN} />
       )}
-      */}
+
       {!error && !isFetching && data && data.length > 0 && (
         <>
-          {/* <TableHeader /> */}
-          <div className="w-[400px] h-[400px]  bg-blue-200" >
+          <div className="w-[400px] h-[400px]  bg-blue-200">
             <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              {/* <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th className="px-6 py-3 max-w-xs overflow-hidden">No.</th>
                   {data &&
@@ -98,8 +97,8 @@ export const Table: React.FC<TableProps> = ({
                       </th>
                     ))}
                 </tr>
-              </thead> */}
-              <tbody >
+              </thead>
+              <tbody>
                 {filteredData &&
                   filteredData.length > 0 &&
                   filteredData.map((row, index) => (
@@ -126,12 +125,12 @@ export const Table: React.FC<TableProps> = ({
               />
             </table>
 
-            {/* {filteredData && filteredData.length < 1 && (
+            {filteredData && filteredData.length < 1 && (
               <EmptyList
                 title="No records found"
                 subtitle={NO_RECORDS_TRY_AGAIN}
               />
-            )} */}
+            )}
           </div>
         </>
       )}
