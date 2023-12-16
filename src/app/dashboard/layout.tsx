@@ -33,9 +33,9 @@ export default function DashboardLayout({
 
   return (
     <FilterProvider>
-      <div className=" box-border grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+      <div className=" bg-white  box-border grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
         {/* Nav */}
-        <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+        <div className="hidden border-r  bg-gray-100/40 lg:block dark:bg-gray-800/40">
           {/* Side Conatiner */}
           <div className="flex flex-col gap-2">
             {/* Logo */}
@@ -120,11 +120,80 @@ export default function DashboardLayout({
             {/* Container */}
             <div className="border shadow-sm rounded-lg p-2">
               <div className="relative w-full overflow-auto">
-                <Table
-                  isFetching={resp.isFetching}
-                  error={resp.error}
-                  data={resp.data}
-                />
+                <table className="w-full caption-bottom text-sm">
+                  <thead className="[&amp;_tr]:border-b">
+                    <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[100px]">
+                        Order
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 min-w-[150px]">
+                        Customer
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                        Date
+                      </th>
+                      <th className="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 text-right">
+                        Total
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="[&amp;_tr:last-child]:border-0">
+                    <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                        #3210
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                        Olivia Martin
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                        February 20, 2022
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                        $42.25
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">
+                        Shipped
+                      </td>
+                    </tr>
+                    <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                        #3209
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                        Ava Johnson
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                        January 5, 2022
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                        $74.99
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">
+                        Paid
+                      </td>
+                    </tr>
+                    <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                        #3204
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                        Michael Johnson
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                        August 3, 2021
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                        $64.75
+                      </td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">
+                        Unfulfilled
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </main>
