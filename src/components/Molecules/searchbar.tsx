@@ -3,6 +3,7 @@ import { SearchIcon } from "~/icons/search-icon";
 import ClearButton from "../Atoms/search-button";
 
 export type SearchBarProps = {
+  className: string;
   onSubmit: (value: string) => void;
   placeHolder?: string;
   debounchTime?: number;
@@ -10,6 +11,7 @@ export type SearchBarProps = {
 };
 
 const Searchbar: React.FC<SearchBarProps> = ({
+  className,
   onSubmit,
   placeHolder = "Search",
   debounchTime = 300,
@@ -28,7 +30,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div className="w-full md:w-1/2">
+    <div className={`${className}`}>
       <form className="flex items-center" onSubmit={onEnter}>
         <label htmlFor="simple-search" className="sr-only">
           Search
