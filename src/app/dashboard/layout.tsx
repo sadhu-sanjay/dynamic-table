@@ -96,7 +96,7 @@ export default function DashboardLayout({
               />
               <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
                 <img
-                  src="/placeholder.svg"
+                  src="/vi.jpeg"
                   width="32"
                   height="32"
                   className="rounded-full"
@@ -107,6 +107,7 @@ export default function DashboardLayout({
               </button>
             </div>
           </header>
+          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6"></main>
         </div>
       </div>
     </FilterProvider>
