@@ -107,7 +107,18 @@ export default function DashboardLayout({
               </button>
             </div>
           </header>
-          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6"></main>
+          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+            {/* Container */}
+            <div className="border shadow-sm rounded-lg p-2">
+              <div className="relative w-full overflow-auto">
+                <table className="w-full caption-bottom text-sm">
+                  <thead className="[_tr]:border-b">
+                    
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </FilterProvider>
