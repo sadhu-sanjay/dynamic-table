@@ -67,7 +67,7 @@ export const Table: React.FC<TableProps> = ({
 
       {!error && !isFetching && data && data.length > 0 && (
         <>
-          <div className="w-[400px] h-[400px] ">
+          <div className="w-[60dvw] h-[83dvh] ">
             <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
