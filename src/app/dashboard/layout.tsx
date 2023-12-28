@@ -1,6 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useState } from "react";
 import { RECORDS_FETCH_URL } from "~/common/config";
 import Searchbar from "~/components/Molecules/searchbar";
 import NavBar from "~/components/Organisms/nav-bar";
@@ -27,7 +28,6 @@ export default function DashboardLayout({
       >
         {/* Nav */}
         <NavBar />
-
         {/* Main */}
         <div className="flex flex-col col-span-12 sm:col-span-10">
           <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
@@ -59,14 +59,7 @@ export default function DashboardLayout({
           <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 ">
             {/* Container */}
             <div className="border shadow-sm rounded-lg p-2">
-              <div className="relative w-full overflow-auto">
-                {children}
-                {/* <Table
-                  isFetching={resp.isFetching}
-                  error={resp.error}
-                  data={resp.data}
-                /> */}
-              </div>
+              <div className="relative w-full overflow-auto">{children}</div>
             </div>
           </main>
         </div>

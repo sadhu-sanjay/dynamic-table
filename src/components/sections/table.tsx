@@ -51,7 +51,7 @@ export const Table: React.FC<TableProps> = ({
 
   return (
     <div
-      className="relative shadow-md sm:rounded-lg 
+      className="relative 
       w-full h-full overflow-auto
       bg-blue-100
       dark:bg-gray-800
@@ -67,7 +67,7 @@ export const Table: React.FC<TableProps> = ({
 
       {!error && !isFetching && data && data.length > 0 && (
         <>
-          <div className="w-full h-[83dvh] ">
+          <div className="w-full h-[75dvh] ">
             <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className=" sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -77,9 +77,7 @@ export const Table: React.FC<TableProps> = ({
                       <th
                         key={index}
                         scope="col"
-                        className=" px-6 py-3 
-                    hover:scale-105 transform transition-transform duration-300
-                    "
+                        className=" px-6 py-3 hover:scale-105 transform transition-transform duration-300 "
                       >
                         <div
                           className="flex items-center cursor-pointer"

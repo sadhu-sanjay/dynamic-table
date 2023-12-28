@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 export type NavItem = {
-    id: number;
+    id: string;
     label: string;
     path: string;
     icon?: FunctionComponent<React.SVGProps<SVGSVGElement>>,

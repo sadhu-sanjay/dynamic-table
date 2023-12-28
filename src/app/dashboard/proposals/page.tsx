@@ -1,6 +1,7 @@
 export default function Proposals() {
   return (
-    <div className="bg-white p-8">
+    <div
+      className="bg-white dark:bg-gray-800 p-8" >
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold">Proposals</h1>
