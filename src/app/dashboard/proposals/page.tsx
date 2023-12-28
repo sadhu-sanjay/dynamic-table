@@ -1,7 +1,8 @@
 export default function Proposals() {
+  const items = [""];
+
   return (
-    <div
-      className="bg-white dark:bg-gray-800 p-8" >
+    <div className="bg-white dark:bg-slate-800 p-4">
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold">Proposals</h1>
@@ -90,64 +91,42 @@ export default function Proposals() {
             </button>
           </div>
         </div>
-        <div className="flex gap-4">
-          <div
-            className="rounded-lg text-card-foreground shadow-sm w-[350px] bg-red-100 border border-red-200"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
-              <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Putting John Doe as the new Coach for the next season.
-              </h3>
-              <p className="text-sm bg-pink-200 text-pink-700 px-2 py-1 inline-block rounded">
-                ON-FIELD DECISION
-              </p>
-            </div>
-            <div className="p-6">
-              <div className="text-center text-xl font-bold text-red-600">
-                REJECTED
+        <div className="flex gap-4 my-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div
+              className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
+              w-[320px] h-[250px]
+            bg-slate-100 border border-slate-200
+            dark:bg-slate-800 dark:border-slate-700"
+              data-v0-t="card"
+            >
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3
+                  className="text-xl font-semibold leading-none tracking-tight
+              text-slate-900 dark:text-slate-50 shadow-sm dark:shadow-slate-700 "
+                >
+                  Putting John Doe as the new Coach for the next season.
+                </h3>
+                <p className="text-sm bg-slate-200 text-zinc-700 px-2 py-1 inline-block rounded">
+                  ON-FIELD DECISION
+                </p>
               </div>
-              <div className="text-right text-xs text-gray-500">1 min ago</div>
-            </div>
-          </div>
-          <div
-            className="rounded-lg text-card-foreground shadow-sm w-[350px] bg-red-100 border border-red-200"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
-              <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Putting John Doe as the new Coach for the next season.
-              </h3>
-              <p className="text-sm bg-pink-200 text-pink-700 px-2 py-1 inline-block rounded">
-                ON-FIELD DECISION
-              </p>
-            </div>
-            <div className="p-6">
-              <div className="text-center text-xl font-bold text-red-600">
-                REJECTED
+              <div className="p-6">
+                <div
+                  className={`text-center text-xl font-bold ${
+                    i % 2 == 0
+                      ? "text-green-600 dark:text-green-400 "
+                      : "text-red-600 dark:text-red-400"
+                  }`}
+                >
+                  {i % 2 == 0 ? "REJECTED" : "ACCEPTED"}
+                </div>
+                <div className="text-right text-xs text-gray-500 dark:text-gray-400">
+                  1 min ago
+                </div>
               </div>
-              <div className="text-right text-xs text-gray-500">1 min ago</div>
             </div>
-          </div>
-          <div
-            className="rounded-lg text-card-foreground shadow-sm w-[350px] bg-red-100 border border-red-200"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
-              <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Putting John Doe as the new Coach for the next season.
-              </h3>
-              <p className="text-sm bg-pink-200 text-pink-700 px-2 py-1 inline-block rounded">
-                ON-FIELD DECISION
-              </p>
-            </div>
-            <div className="p-6">
-              <div className="text-center text-xl font-bold text-red-600">
-                REJECTED
-              </div>
-              <div className="text-right text-xs text-gray-500">1 min ago</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

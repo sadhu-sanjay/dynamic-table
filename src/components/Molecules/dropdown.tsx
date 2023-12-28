@@ -62,7 +62,7 @@ export function Dropdown({
         />
         {isOpen && (
           <div
-            className="absolute z-10 bg-white rounded-4px shadow w-60 dark:bg-gray-700"
+            className="absolute bg-white rounded-4px shadow w-60 dark:bg-gray-700"
             id="dropdownSearch"
           >
             <div className="p-3">

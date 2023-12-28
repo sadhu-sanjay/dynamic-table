@@ -62,8 +62,9 @@ const NavBar: React.FC<NavBarProps> = ({ title, items, children }) => {
                   {item.icon}
                   {item.label}
                   {item.badge && (
-                    <div className="bg-gray-900 dark:bg-gray-50 dark:text-gray-900
-                     text-gray-100 border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full ">
+                    <div className=" bg-gray-600 dark:bg-gray-50
+                     text-gray-100 dark:text-gray-600
+                    border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full ">
                       {item.badge}
                     </div>
                   )}
