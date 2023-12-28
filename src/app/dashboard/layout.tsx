@@ -29,7 +29,7 @@ export default function DashboardLayout({
         {/* Nav */}
         <NavBar className="col-span-2 " />
         {/* Main */}
-        <div className="flex flex-col col-span-10 h-full overflow-scroll ">
+        <div className="flex flex-col col-span-10 h-full ">
           <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
             <a className="lg:hidden" href="#">
               <OrderIcon />
@@ -58,7 +58,7 @@ export default function DashboardLayout({
           </header>
           <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 ">
             <div className="border shadow-sm rounded-lg p-2">
-              <div className="relative w-full overflow-auto">{children}</div>
+              <div className="relative w-full  overflow-auto">{children}</div>
             </div>
           </main>
         </div>
