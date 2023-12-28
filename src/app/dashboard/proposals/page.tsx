@@ -95,7 +95,7 @@ export default function Proposals() {
           {Array.from({ length: 4 }).map((_, i) => (
             <div
               className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
-              w-[320px] h-[250px]
+              w-[300px]
             bg-slate-100 border border-slate-200
             dark:bg-slate-800 dark:border-slate-700"
               data-v0-t="card"

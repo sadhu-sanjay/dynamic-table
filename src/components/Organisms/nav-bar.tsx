@@ -25,13 +25,22 @@ type NavBarProps = {
   title?: string;
   items?: string[];
   children?: React.ReactNode;
+  className?: string;
 };
 
-const NavBar: React.FC<NavBarProps> = ({ title, items, children }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  className,
+  title,
+  items,
+  children,
+}) => {
   const [selected, setSelected] = useState<string>("6");
 
   return (
-    <div className="col-span-2 hidden border-r  bg-gray-100/40 lg:block dark:bg-gray-800/40">
+    <div
+      className={`hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40
+    ${className}`}
+    >
       {/* Side Conatiner */}
       <div className="flex flex-col gap-2">
         {/* Logo */}
@@ -62,62 +71,17 @@ const NavBar: React.FC<NavBarProps> = ({ title, items, children }) => {
                   {item.icon}
                   {item.label}
                   {item.badge && (
-                    <div className=" bg-gray-600 dark:bg-gray-50
+                    <div
+                      className=" bg-gray-600 dark:bg-gray-50
                      text-gray-100 dark:text-gray-600
-                    border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full ">
+                    border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full "
+                    >
                       {item.badge}
                     </div>
                   )}
                 </Link>
               );
             })}
-            {/* <a
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <IconHome />
-              Home
-            </a>
-            <a
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <BoxIcon />
-              Products
-            </a>
-            <a
-              className="flex items-center gap-3 rounded-lg  px-3 py-2 text-gray-500  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-              href="/dashboard/orders"
-            >
-              <CartIcon />
-              Orders
-              <div className="border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                700
-              </div>
-            </a>
-            <a
-              className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-              href="/dashboard/proposals"
-            >
-              <DocTextIcon />
-              Proposals
-              <div className="border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                21
-              </div>
-            </a>
-            <a>
-              <div className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                <IconUsers />
-                Customers
-              </div>
-            </a>
-            <a
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <AnalyticsIcon />
-              Analytics
-            </a> */}
           </nav>
         </div>
       </div>
