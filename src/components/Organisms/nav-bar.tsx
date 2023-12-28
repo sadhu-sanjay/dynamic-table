@@ -50,18 +50,23 @@ const NavBar: React.FC<NavBarProps> = ({ title, items, children }) => {
                   key={item.id}
                   className={`flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 ${
                     selected === item.id
-                      ? "bg-gray-100 dark:bg-gray-800 dark:text-gray-50"
+                      ? "bg-gray-100 dark:bg-gray-800 dark:text-gray-50 text-gray-900"
                       : ""
                   }`}
-                  href={item.path}
+                  href={`/dashboard/${item.path}`}
                   onClick={() => setSelected(item.id)}
                 >
                   {item.icon}
                   {item.label}
+                  {item.badge && (
+                    <div className="border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                      {item.badge}
+                    </div>
+                  )}
                 </a>
               );
             })}
-            <a
+            {/* <a
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               href="#"
             >
@@ -107,7 +112,7 @@ const NavBar: React.FC<NavBarProps> = ({ title, items, children }) => {
             >
               <AnalyticsIcon />
               Analytics
-            </a>
+            </a> */}
           </nav>
         </div>
       </div>

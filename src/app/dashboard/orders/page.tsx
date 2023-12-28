@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { RECORDS_FETCH_URL } from "~/common/config";
+import TableHeader from "~/components/Organisms/table-header";
 import { Table } from "~/components/sections/table";
 
 export default function Orders() {
@@ -12,6 +13,9 @@ export default function Orders() {
   });
 
   return (
-    <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
+    <>
+      <TableHeader />
+      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
+    </>
   );
 }
