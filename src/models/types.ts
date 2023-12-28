@@ -1,3 +1,12 @@
+import { FunctionComponent } from "react";
+
+export type NavItem = {
+    id: number;
+    label: string;
+    path: string;
+    icon?: FunctionComponent<React.SVGProps<SVGSVGElement>>,
+    badge?: string;
+};
 
 export type SortConfig = {
     key: string;

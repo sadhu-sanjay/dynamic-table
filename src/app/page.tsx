@@ -10,8 +10,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/dashboard");
-  }, [router]); 
+    router.push("/dashboard/orders");
+  }, [router]);
 
   return (
     <main className="flex flex-col items-stretch min-h-screen">

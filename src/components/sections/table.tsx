@@ -65,6 +65,7 @@ export const Table: React.FC<TableProps> = ({
         <EmptyList title="No records found" subtitle={NO_RECORDS_TRY_AGAIN} />
       )}
 
+      <TableHeader />
       {!error && !isFetching && data && data.length > 0 && (
         <>
           <div className="w-full h-[83dvh] ">
