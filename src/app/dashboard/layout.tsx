@@ -10,6 +10,7 @@ import { Table } from "~/components/sections/table";
 import AnalyticsIcon from "~/icons/analytics-icon";
 import BoxIcon from "~/icons/box-icon";
 import CartIcon from "~/icons/cart-icon";
+import DocTextIcon from "~/icons/doctext-icon";
 import FeedbackIcon from "~/icons/feedback-icon";
 import IconHome from "~/icons/icon-home";
 import IconSettings from "~/icons/icon-settings";
@@ -36,10 +37,10 @@ export default function DashboardLayout({
       <div
         className=" bg-white
       dark:bg-gray-900
-        box-border grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]"
+        box-border h-screen min-h-screen w-full overflow-hidden grid grid-cols-12"
       >
         {/* Nav */}
-        <div className="hidden border-r  bg-gray-100/40 lg:block dark:bg-gray-800/40">
+        <div className="col-span-2 hidden border-r  bg-gray-100/40 lg:block dark:bg-gray-800/40">
           {/* Side Conatiner */}
           <div className="flex flex-col gap-2">
             {/* Logo */}
@@ -67,13 +68,23 @@ export default function DashboardLayout({
                   Products
                 </a>
                 <a
-                  className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-                  href="#"
+                  className="flex items-center gap-3 rounded-lg  px-3 py-2 text-gray-500  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
+                  href="/dashboard/orders"
                 >
                   <CartIcon />
                   Orders
                   <div className="border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                    12
+                    700
+                  </div>
+                </a>
+                <a
+                  className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
+                  href="/dashboard/proposals"
+                >
+                  <DocTextIcon />
+                  Proposals
+                  <div className="border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                    21
                   </div>
                 </a>
                 <a>
@@ -93,7 +104,8 @@ export default function DashboardLayout({
             </div>
           </div>
         </div>
-        <div className="flex flex-col">
+        {/* Main */}
+        <div className="flex flex-col col-span-10">
           <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
             <a className="lg:hidden" href="#">
               <OrderIcon />
@@ -120,15 +132,16 @@ export default function DashboardLayout({
               </button>
             </div>
           </header>
-          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 ">
             {/* Container */}
             <div className="border shadow-sm rounded-lg p-2">
               <div className="relative w-full overflow-auto">
-                <Table
+                {children}
+                {/* <Table
                   isFetching={resp.isFetching}
                   error={resp.error}
                   data={resp.data}
-                />
+                /> */}
               </div>
             </div>
           </main>

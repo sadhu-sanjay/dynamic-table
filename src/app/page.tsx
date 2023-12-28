@@ -11,13 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     router.push("/dashboard");
-  }, [router]);
-
-  const resp = useQuery({
-    queryKey: ["data"],
-    queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
-    refetchOnWindowFocus: false,
-  });
+  }, [router]); 
 
   return (
     <main className="flex flex-col items-stretch min-h-screen">
