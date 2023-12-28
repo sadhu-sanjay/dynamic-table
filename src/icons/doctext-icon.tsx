@@ -1,4 +1,4 @@
-const DocTextIcon: React.FC = ({ ...props }) => {
+const MeterIcon: React.FC = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ const DocTextIcon: React.FC = ({ ...props }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-4 h-4"
+      className="w-6 h-6"
       {...props}
     >
       <path
@@ -18,4 +18,4 @@ const DocTextIcon: React.FC = ({ ...props }) => {
   );
 };
 
-export default DocTextIcon;
+export default MeterIcon;

@@ -49,8 +49,7 @@ const DynamicFilterList: React.FC<FilterProps> = ({
                         setSelectedFilters([
                           [field.filterKey, Operators.contains, value],
                         ]);
-                      }}
-                    />
+                      } } className={""}                    />
                   );
                 case "number":
                   return <div key={index}>implement</div>;

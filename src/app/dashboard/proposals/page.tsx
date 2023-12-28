@@ -1,4 +1,6 @@
 "use client";
+import CreateDocButton from "~/components/Atoms/create-doc-button";
+import DeleteButton from "~/components/Atoms/delete-button";
 import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
@@ -16,10 +18,7 @@ export default function Proposals() {
               <SpeakerIcon />
               ANNOUNCEMENT
             </button>
-            <button className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-purple-600 text-white flex items-center gap-2">
-              <DocAddIcon />
-              NEW PROPOSAL
-            </button>
+            <CreateDocButton title="NEW PROPOSAL" className="my-0" onClick={() => {}} />
           </div>
         </div>
         <div className="text-sm text-gray-500">Collingwood Magpies</div>
@@ -49,6 +48,7 @@ export default function Proposals() {
         <div className="flex gap-4 my-4 flex-wrap">
           {Array.from({ length: 14 }).map((_, i) => (
             <div
+              key={i}
               className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
               w-[300px]
             bg-slate-100 border border-slate-200
