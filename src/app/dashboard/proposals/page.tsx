@@ -1,12 +1,15 @@
 "use client";
+import { useState } from "react";
 import CreateDocButton from "~/components/Atoms/create-doc-button";
 import DeleteButton from "~/components/Atoms/delete-button";
+import Tabs from "~/components/Molecules/Tabs";
 import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
 
 export default function Proposals() {
-  const items = [""];
+  const items = ["Ongoing", "Approved", "Rejected"];
+  const [activeTab, setActiveTab] = useState(items[0]);
 
   return (
     <div className="bg-white dark:bg-slate-800 p-4">
@@ -16,24 +19,24 @@ export default function Proposals() {
           <div className="flex gap-4">
             <button className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-500 text-white flex items-center gap-2">
               <SpeakerIcon />
-              ANNOUNCEMENT
+              Announcement
             </button>
-            <CreateDocButton title="NEW PROPOSAL" className="my-0" onClick={() => {}} />
+            <CreateDocButton
+              title="New Proposal"
+              className="my-0"
+              onClick={() => {}}
+            />
           </div>
         </div>
         <div className="text-sm text-gray-500">Collingwood Magpies</div>
+
         <div className="flex justify-between">
-          <div className="flex gap-4">
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-secondary/80 h-10 px-4 py-2 bg-gray-200 text-gray-600">
-              Ongoing (14)
-            </button>
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-secondary/80 h-10 px-4 py-2 bg-gray-200 text-gray-600">
-              Approved (4)
-            </button>
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
-              Rejected
-            </button>
-          </div>
+          <Tabs
+            items={items}
+            className="bg-gray-50"
+            activeTab={activeTab}
+            onChange={(item) => setActiveTab(item)}
+          />
           <div className="flex gap-2 items-center">
             <Searchbar onSubmit={(value) => console.log(value)} className="" />
             <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
@@ -43,7 +46,6 @@ export default function Proposals() {
               Filter
             </button>
           </div>
-          col-span-2
         </div>
         <div className="flex gap-4 my-4 flex-wrap">
           {Array.from({ length: 14 }).map((_, i) => (
