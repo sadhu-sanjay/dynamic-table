@@ -79,7 +79,7 @@ export default function Proposals() {
                       : "text-red-600 dark:text-red-400"
                   }`}
                 >
-                  {i % 2 == 0 ? "REJECTED" : "ACCEPTED"}
+                  {i % 2 == 0 ? "REJECTED" : "APPROVED"}
                 </div>
                 <div className="text-right text-xs text-gray-500 dark:text-gray-400">
                   1 min ago
