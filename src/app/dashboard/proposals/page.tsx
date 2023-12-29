@@ -2,20 +2,23 @@
 import { useState } from "react";
 import CreateDocButton from "~/components/Atoms/create-doc-button";
 import DeleteButton from "~/components/Atoms/delete-button";
-import Tabs from "~/components/Molecules/Tabs";
 import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
+import Tabs from "~/components/Molecules/tab";
 
 export default function Proposals() {
-  const items = ["Ongoing", "Approved", "Rejected"];
+  const items = ["Ongoing(14)", "Approved(4)", "Rejected(3)"];
   const [activeTab, setActiveTab] = useState(items[0]);
 
   return (
     <div className="bg-white dark:bg-slate-800 p-4">
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold">Proposals</h1>
+          <div className="flex items-baseline gap-2 ">
+            <h1 className="text-4xl font-bold">Proposals</h1>
+            <div className="text-sm text-gray-500">Collingwood Magpies</div>
+          </div>
           <div className="flex gap-4">
             <button className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-500 text-white flex items-center gap-2">
               <SpeakerIcon />
@@ -28,15 +31,15 @@ export default function Proposals() {
             />
           </div>
         </div>
-        <div className="text-sm text-gray-500">Collingwood Magpies</div>
 
         <div className="flex justify-between">
           <Tabs
             items={items}
             className="bg-gray-50"
             activeTab={activeTab}
-            onChange={(item) => setActiveTab(item)}
+            onChange={(item: string) => setActiveTab(item)}
           />
+
           <div className="flex gap-2 items-center">
             <Searchbar onSubmit={(value) => console.log(value)} className="" />
             <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
@@ -52,7 +55,7 @@ export default function Proposals() {
             <div
               key={i}
               className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
-              w-[300px]
+              w-[305px]
             bg-slate-100 border border-slate-200
             dark:bg-slate-800 dark:border-slate-700"
               data-v0-t="card"

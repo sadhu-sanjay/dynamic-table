@@ -6,9 +6,10 @@ import axios from "axios";
 import { FilterProvider } from "~/providers/filter-provider";
 import filtersData from "~/data/FilterData";
 import TableHeader from "~/components/Organisms/table-header";
+import Proposals from "./proposals/page";
 filtersData.sort((a, b) => a.order - b.order);
 
-export default function Products() {
+export default function Dashboard() {
   const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
@@ -17,8 +18,7 @@ export default function Products() {
 
   return (
     <>
-      <TableHeader />
-      <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
+    <Proposals />
     </>
   );
 }
