@@ -1,11 +1,15 @@
-import Button from "../Atoms/button";
 import TabButton from "../Atoms/tab-button";
 
+export type TabItem = {
+  label: string;
+  value: string;
+};
+
 type TabsProps = {
-  items: string[];
-  activeTab: string;
+  items: TabItem[];
+  activeTab: TabItem;
   className?: string;
-  onChange: (item: string) => void;
+  onChange: (item: TabItem) => void;
 };
 
 const Tabs: React.FC<TabsProps> = ({
@@ -16,23 +20,14 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <div
-      className={`tabs ${className} flex gap-2 rounded-4px shadow-sm p-2 dark:bg-gray-700
+      className={`tabs  flex items-center gap-1 rounded-full  shadow-sm px-2 py-2 dark:bg-gray-700 ${className}
     `}
     >
       {items.map((tab) => (
-        // <Button
-        //   key={tab}
-        //   title={tab}
-        //   className={` font-medium rounded-full text-xs px-2 py-1
-        //   ${tab === activeTab ? "shadow-md " : "shadow-none"}
-        //   `}
-        //   onClick={() => onChange(tab)}
-        //   isActive={tab === activeTab}
-        // />
         <TabButton
-          isActive={activeTab == tab}
-          key={tab}
-          title={tab}
+          isActive={activeTab.value === tab.value}
+          key={tab.value}
+          title={tab.label}
           onClick={() => onChange(tab)}
         />
       ))}

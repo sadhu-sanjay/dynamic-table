@@ -1,6 +1,7 @@
 [
   {
-    "name": "Apple Watch",
+    "name": "Putting John Doe as the new Coach for the next season.",
+    "context": "ON-FIELD DECISION",
     "color": "Black",
     "category": "Watches",
     "inStock": "Yes",
@@ -9,7 +10,18 @@
     "weight": "0.12 lb."
   },
   {
-    "name": "Apple iMac",
+    "name": "Hire Tiger Woods as a player-coach.",
+    "context": "MARKETING STRATEGY EXECUTION",
+    "color": "Black",
+    "category": "Watches",
+    "inStock": "Yes",
+    "onSale": "No",
+    "price": "$199",
+    "weight": "0.12 lb."
+  },
+  {
+    "name": "Welcoming Mike Johnson as the Head of Marketing",
+    "context": "CREATIVE VISION TRANSLATION",
     "color": "Silver",
     "category": "PC",
     "inStock": "Yes",
@@ -18,7 +30,8 @@
     "weight": "7.0 lb."
   },
   {
-    "name": "Apple AirPods",
+    "name": "Introducing Sarah Williams as the Chief Technology Officer (CTO)",
+    "context": "TALENT DEVELOPMENT STRATEGY",
     "color": "White",
     "category": "Accessories",
     "inStock": "No",
@@ -27,7 +40,8 @@
     "weight": "38 g"
   },
   {
-    "name": "iPad Pro",
+    "name": "Announcing Chris Anderson as the Lead Creative Director",
+    "context": "FINANCIAL STRATEGY IMPLEMENTATION",
     "color": "Gold",
     "category": "Tablet",
     "inStock": "No",
@@ -36,7 +50,8 @@
     "weight": "1.3 lb."
   },
   {
-    "name": "Magic Keyboard",
+    "name": "Announcing Chris Anderson as the Lead Creative Director",
+    "context": "SALES CAMPAIGN EXECUTION",
     "color": "Black",
     "category": "Accessories",
     "inStock": "Yes",
@@ -45,7 +60,8 @@
     "weight": "453 g"
   },
   {
-    "name": "Apple TV 4K",
+    "name": "Designating Mark Roberts as the Chief Financial Officer (CFO)",
+    "context": "OPERATIONAL EFFICIENCY ENHANCEMENT",
     "color": "Black",
     "category": "TV",
     "inStock": "Yes",
@@ -54,7 +70,8 @@
     "weight": "1.78 lb."
   },
   {
-    "name": "AirTag",
+    "name": "Bringing on Board Lisa Miller as the Sales Director",
+    "context": "TECHNOLOGY ROADMAP IMPLEMENTATION",
     "color": "Silver",
     "category": "Accessories",
     "inStock": "Yes",
@@ -63,7 +80,7 @@
     "weight": "53 g"
   },
   {
-    "name": "Apple Watch",
+    "name": "Naming Alex Turner as the Operations Manager",
     "color": "Black",
     "category": "Watches",
     "inStock": "Yes",
@@ -72,7 +89,7 @@
     "weight": "0.12 lb."
   },
   {
-    "name": "Apple iMac",
+    "name": "Introducing Olivia Clark as the Head of Customer Experience",
     "color": "Silver",
     "category": "PC",
     "inStock": "Yes",
@@ -81,7 +98,7 @@
     "weight": "7.0 lb."
   },
   {
-    "name": "Apple AirPods",
+    "name": "Appointing David Martinez as the Chief Strategy Officer (CSO)",
     "color": "White",
     "category": "Accessories",
     "inStock": "No",

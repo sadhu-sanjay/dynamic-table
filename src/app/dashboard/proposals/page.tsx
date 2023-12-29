@@ -5,10 +5,16 @@ import DeleteButton from "~/components/Atoms/delete-button";
 import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
-import Tabs from "~/components/Molecules/tab";
+import Tabs, { TabItem } from "~/components/Molecules/tab";
+import data from "~/data/data.json";
 
 export default function Proposals() {
-  const items = ["Ongoing(14)", "Approved(4)", "Rejected(3)"];
+  const items = [
+    { label: "Ongoing", value: "ongoing" },
+    { label: "Approved", value: "approved" },
+    { label: "Rejected", value: "rejected" },
+  ];
+
   const [activeTab, setActiveTab] = useState(items[0]);
 
   return (
@@ -16,7 +22,7 @@ export default function Proposals() {
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <div className="flex items-baseline gap-2 ">
-            <h1 className="text-4xl font-bold">Proposals</h1>
+            <h1 className="text-3xl font-bold">Proposals</h1>
             <div className="text-sm text-gray-500">Collingwood Magpies</div>
           </div>
           <div className="flex gap-4">
@@ -37,7 +43,7 @@ export default function Proposals() {
             items={items}
             className="bg-gray-50"
             activeTab={activeTab}
-            onChange={(item: string) => setActiveTab(item)}
+            onChange={(item: TabItem) => setActiveTab(item)}
           />
 
           <div className="flex gap-2 items-center">
@@ -50,12 +56,12 @@ export default function Proposals() {
             </button>
           </div>
         </div>
-        <div className="flex gap-4 my-4 flex-wrap">
-          {Array.from({ length: 14 }).map((_, i) => (
+        <div className="flex gap-4 my-4 flex-wrap ">
+          {Array.from(data).map((element, i) => (
             <div
               key={i}
               className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
-              w-[305px]
+              w-[290px]
             bg-slate-100 border border-slate-200
             dark:bg-slate-800 dark:border-slate-700"
               data-v0-t="card"
@@ -65,10 +71,10 @@ export default function Proposals() {
                   className="text-xl font-semibold leading-none tracking-tight
               text-slate-900 dark:text-slate-50 shadow-sm dark:shadow-slate-700 "
                 >
-                  Putting John Doe as the new Coach for the next season.
+                  {element.name}
                 </h3>
                 <p className="text-sm bg-slate-200 text-zinc-700 px-2 py-1 inline-block rounded">
-                  ON-FIELD DECISION
+                  {element.context ?? "ON-FIELD DECISION"}
                 </p>
               </div>
               <div className="p-6">
