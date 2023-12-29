@@ -3,6 +3,7 @@ import TabButton from "../Atoms/tab-button";
 export type TabItem = {
   label: string;
   value: string;
+  count?: number; 
 };
 
 type TabsProps = {
@@ -27,7 +28,7 @@ const Tabs: React.FC<TabsProps> = ({
         <TabButton
           isActive={activeTab.value === tab.value}
           key={tab.value}
-          title={tab.label}
+          title={tab.label + " " + "(" + tab.count + ")"}
           onClick={() => onChange(tab)}
         />
       ))}

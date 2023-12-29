@@ -3,6 +3,7 @@
     "name": "Putting John Doe as the new Coach for the next season.",
     "context": "ON-FIELD DECISION",
     "color": "Black",
+    "status": "approved",
     "category": "Watches",
     "inStock": "Yes",
     "onSale": "No",
@@ -13,6 +14,7 @@
     "name": "Hire Tiger Woods as a player-coach.",
     "context": "MARKETING STRATEGY EXECUTION",
     "color": "Black",
+    "status": "approved",
     "category": "Watches",
     "inStock": "Yes",
     "onSale": "No",
@@ -22,6 +24,7 @@
   {
     "name": "Welcoming Mike Johnson as the Head of Marketing",
     "context": "CREATIVE VISION TRANSLATION",
+    "status": "rejected",
     "color": "Silver",
     "category": "PC",
     "inStock": "Yes",
@@ -32,6 +35,7 @@
   {
     "name": "Introducing Sarah Williams as the Chief Technology Officer (CTO)",
     "context": "TALENT DEVELOPMENT STRATEGY",
+    "status": "rejected",
     "color": "White",
     "category": "Accessories",
     "inStock": "No",
@@ -72,6 +76,7 @@
   {
     "name": "Bringing on Board Lisa Miller as the Sales Director",
     "context": "TECHNOLOGY ROADMAP IMPLEMENTATION",
+    "status": "ongoing",
     "color": "Silver",
     "category": "Accessories",
     "inStock": "Yes",
@@ -82,6 +87,7 @@
   {
     "name": "Naming Alex Turner as the Operations Manager",
     "color": "Black",
+    "status": "approved",
     "category": "Watches",
     "inStock": "Yes",
     "onSale": "No",
@@ -91,6 +97,7 @@
   {
     "name": "Introducing Olivia Clark as the Head of Customer Experience",
     "color": "Silver",
+    "status": "approved",
     "category": "PC",
     "inStock": "Yes",
     "onSale": "Yes",
@@ -100,6 +107,7 @@
   {
     "name": "Appointing David Martinez as the Chief Strategy Officer (CSO)",
     "color": "White",
+    "status": "rejected",
     "category": "Accessories",
     "inStock": "No",
     "onSale": "Yes",
@@ -109,6 +117,7 @@
   {
     "name": "iPad Pro",
     "color": "Gold",
+    "status": "rejected",
     "category": "Tablet",
     "inStock": "No",
     "onSale": "Yes",
@@ -118,6 +127,7 @@
   {
     "name": "Magic Keyboard",
     "color": "Black",
+    "status": "rejected",
     "category": "Accessories",
     "inStock": "Yes",
     "onSale": "Yes",
@@ -127,6 +137,7 @@
   {
     "name": "Apple TV 4K",
     "color": "Black",
+    "status": "ongoing",
     "category": "TV",
     "inStock": "Yes",
     "onSale": "No",
@@ -136,6 +147,7 @@
   {
     "name": "AirTag",
     "color": "Silver",
+    "status": "ongoing",
     "category": "Accessories",
     "inStock": "Yes",
     "onSale": "No",

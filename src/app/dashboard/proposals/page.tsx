@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateDocButton from "~/components/Atoms/create-doc-button";
 import DeleteButton from "~/components/Atoms/delete-button";
 import Searchbar from "~/components/Molecules/searchbar";
@@ -9,13 +9,35 @@ import Tabs, { TabItem } from "~/components/Molecules/tab";
 import data from "~/data/data.json";
 
 export default function Proposals() {
-  const items = [
-    { label: "Ongoing", value: "ongoing" },
-    { label: "Approved", value: "approved" },
-    { label: "Rejected", value: "rejected" },
+  const items: Array<TabItem> = [
+    { label: "Ongoing", value: "ongoing", count: 0 },
+    { label: "Approved", value: "approved", count: 0 },
+    { label: "Rejected", value: "rejected", count: 0 },
   ];
 
+  items.forEach((item) => {
+    item.count = data.filter((element) => {
+      return element.status?.toLowerCase() === item.value.toLowerCase();
+    }).length;
+  });
+
+  const [filteredData, setFilteredData] = useState(data);
   const [activeTab, setActiveTab] = useState(items[0]);
+
+  const filterData = (searchText: string, status: string) => {
+    const filtered = data.filter((element) => {
+      const titleMatch = element.name
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
+      const statusMatch =
+        element.status?.toLowerCase() === status.toLowerCase();
+      return titleMatch && statusMatch;
+    });
+
+    setFilteredData(filtered);
+  };
+
+  // ...
 
   return (
     <div className="bg-white dark:bg-slate-800 p-4">
@@ -43,11 +65,16 @@ export default function Proposals() {
             items={items}
             className="bg-gray-50"
             activeTab={activeTab}
-            onChange={(item: TabItem) => setActiveTab(item)}
+            onChange={(item: TabItem) => {
+              setActiveTab(item);
+              filterData("", item.value);
+            }}
           />
 
           <div className="flex gap-2 items-center">
-            <Searchbar onSubmit={(value) => console.log(value)} className="" />
+            <Searchbar
+              onSubmit={(value) => filterData(value, activeTab.value)}
+            />
             <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
               Sort
             </button>
@@ -57,7 +84,7 @@ export default function Proposals() {
           </div>
         </div>
         <div className="flex gap-4 my-4 flex-wrap ">
-          {Array.from(data).map((element, i) => (
+          {filteredData.map((element, i) => (
             <div
               key={i}
               className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 

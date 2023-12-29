@@ -3,7 +3,7 @@ import { SearchIcon } from "~/icons/search-icon";
 import ClearButton from "../Atoms/search-button";
 
 export type SearchBarProps = {
-  className: string;
+  className?: string;
   onSubmit: (value: string) => void;
   placeHolder?: string;
   debounchTime?: number;
@@ -48,6 +48,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
             onChange={(e) => {
               const value = e.target.value;
               setSearchTerm(value);
+              debouncedOnChange(value);
             }}
           />
           {showSearchButton && (
