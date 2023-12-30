@@ -14,7 +14,7 @@ export default function Orders() {
 
   return (
     <>
-      <TableHeader />
+      <TableHeader  />
       <Table isFetching={resp.isFetching} error={resp.error} data={resp.data} />
     </>
   );

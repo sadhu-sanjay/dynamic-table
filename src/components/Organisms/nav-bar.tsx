@@ -5,7 +5,6 @@ import { RECORDS_FETCH_URL } from "~/common/config";
 import Searchbar from "~/components/Molecules/searchbar";
 import TableHeader from "~/components/Organisms/table-header";
 import { Table } from "~/components/sections/table";
-import { navData } from "~/data/nav-data";
 import AnalyticsIcon from "~/icons/analytics-icon";
 import BoxIcon from "~/icons/box-icon";
 import CartIcon from "~/icons/cart-icon";
@@ -26,6 +25,7 @@ type NavBarProps = {
   items?: string[];
   children?: React.ReactNode;
   className?: string;
+  navData: NavItem[];
 };
 
 const NavBar: React.FC<NavBarProps> = ({
@@ -33,6 +33,7 @@ const NavBar: React.FC<NavBarProps> = ({
   title,
   items,
   children,
+  navData,
 }) => {
   const [selected, setSelected] = useState<string>("6");
 
@@ -54,7 +55,7 @@ const NavBar: React.FC<NavBarProps> = ({
         <div className="flex-1">
           <nav className="grid items-start px-4 text-sm font-medium">
             {/* Nav Items */}
-            {navData.map((item) => {
+            {navData.map((item: NavItem) => {
               return (
                 <Link
                   key={item.id}

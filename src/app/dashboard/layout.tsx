@@ -9,6 +9,7 @@ import NavBar from "~/components/Organisms/nav-bar";
 import OrderIcon from "~/icons/order-icon";
 import { FilterProvider } from "~/providers/filter-provider";
 import data from "~/data/data.json";
+import navData from "~/data/nav-data";
 
 export default function DashboardLayout({
   children,
@@ -21,6 +22,8 @@ export default function DashboardLayout({
     refetchOnWindowFocus: false,
   });
 
+  const [selectedNav, setSelectedNav] = useState("proposals");
+
   return (
     <FilterProvider>
       <div
@@ -28,12 +31,12 @@ export default function DashboardLayout({
       dark:bg-gray-900 
         box-border h-screen min-h-screen w-full grid grid-cols-12"
       >
-        <NavBar className="col-span-2 " />
+        <NavBar navData={navData} className="col-span-2 " />
         <div className="main flex flex-col col-span-10 overflow-hidden">
           <Header title="Proposals" onSubmit={() => {}} />
           <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 overflow-hidden ">
             {/* <div className="subContainer border shadow-sm rounded-lg overflow-auto"> */}
-              {children}
+            {children}
             {/* </div> */}
           </main>
         </div>

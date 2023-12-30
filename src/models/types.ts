@@ -1,10 +1,10 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactElement } from "react";
 
 export type NavItem = {
     id: string;
     label: string;
     path: string;
-    icon?: FunctionComponent<React.SVGProps<SVGSVGElement>>,
+    icon?: ReactElement;
     badge?: string;
 };
 

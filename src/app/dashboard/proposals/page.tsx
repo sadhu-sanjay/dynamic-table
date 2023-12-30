@@ -7,12 +7,15 @@ import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
 import Tabs, { TabItem } from "~/components/Molecules/tab";
 import data from "~/data/data.json";
+import SortButton from "~/components/Atoms/sort-button";
+import FilterButton from "~/components/Atoms/filter-button";
 
 export default function Proposals() {
   const items: Array<TabItem> = [
     { label: "Ongoing", value: "ongoing", count: 0 },
     { label: "Approved", value: "approved", count: 0 },
     { label: "Rejected", value: "rejected", count: 0 },
+    { label: "Draft", value: "draft", count: 0 },
   ];
 
   items.forEach((item) => {
@@ -22,7 +25,7 @@ export default function Proposals() {
   });
 
   const [filteredData, setFilteredData] = useState(data);
-  const [activeTab, setActiveTab] = useState(items[0]);
+  const [activeTab, setActiveTab] = useState(items[2]);
 
   const filterData = (searchText: string, status: string) => {
     const filtered = data.filter((element) => {
@@ -37,7 +40,9 @@ export default function Proposals() {
     setFilteredData(filtered);
   };
 
-  // ...
+  useEffect(() => {
+    filterData("", activeTab.value);
+  }, []);
 
   return (
     <div className=" bg-gray-100 rounded-4px dark:bg-slate-800 flex flex-col gap-4 p-5 border h-full w-full">
@@ -71,16 +76,20 @@ export default function Proposals() {
         />
 
         <div className="flex gap-2 items-center">
-          <Searchbar onSubmit={(value) => filterData(value, activeTab.value)} />
-          <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
+          <div className="flex items-center w-full space-x-3 md:w-auto">
+            <Searchbar onSubmit={(text) => filterData(text, activeTab.value)} />
+            <SortButton onClick={() => {}} />
+            <FilterButton onClick={() => {}} />
+          </div>
+          {/* <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
             Sort
           </button>
           <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-gray-200 text-gray-600">
             Filter
-          </button>
+          </button> */}
         </div>
       </div>
-      <div className="flex gap-4 flex-wrap overflow-auto ">
+      <div className="flex gap-4 flex-wrap overflow-x-visible overflow-y-scroll py-4">
         {filteredData.map((element, i) => (
           <div
             key={i}

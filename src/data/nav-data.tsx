@@ -7,7 +7,9 @@ import IconSettings from "~/icons/icon-settings";
 import IconUsers from "~/icons/icon-users";
 import LoadingCircle from "~/icons/loading-circle";
 
-export const navData = [
+import { NavItem } from "~/models/types";
+
+const navData: NavItem[] = [
   {
     id: "1",
     label: "Home",
@@ -59,3 +61,5 @@ export const navData = [
     icon: <LoadingCircle />,
   },
 ];
+
+export default navData;

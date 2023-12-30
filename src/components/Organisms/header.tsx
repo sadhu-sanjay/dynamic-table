@@ -19,10 +19,9 @@ const Header: React.FC<HeaderProps> = ({ title, onSubmit }) => {
       <div className="flex-1">
         <h1 className="font-semibold text-lg">{title}</h1>
       </div>
-      <div className="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <Searchbar className="ml-auto hidden md:block" onSubmit={onSubmit} />
+      <div className="flex flex-1 items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        {/* <Searchbar className="ml-auto hidden md:block" onSubmit={onSubmit} /> */}
         <NotificationButton className="hidden md:block" />
-
         <button className="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
           <img
             src="/vi.jpeg"
