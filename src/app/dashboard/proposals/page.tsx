@@ -40,7 +40,7 @@ export default function Proposals() {
   // ...
 
   return (
-    <div className=" bg-white dark:bg-slate-800 flex flex-col gap-4 p-5 bg-yellow-600 h-full w-full">
+    <div className=" bg-gray-100 rounded-4px dark:bg-slate-800 flex flex-col gap-4 p-5 border h-full w-full">
       <div className="flex justify-between items-center">
         <div className="flex items-baseline gap-2 ">
           <h1 className="text-3xl font-bold">Proposals</h1>
@@ -59,7 +59,7 @@ export default function Proposals() {
         </div>
       </div>
 
-      <div className="flex justify-between bg-blue-800">
+      <div className="flex justify-between ">
         <Tabs
           items={items}
           className="bg-gray-50"
@@ -80,7 +80,7 @@ export default function Proposals() {
           </button>
         </div>
       </div>
-      <div className="flex gap-4 flex-wrap bg-green-800 overflow-auto ">
+      <div className="flex gap-4 flex-wrap overflow-auto ">
         {filteredData.map((element, i) => (
           <div
             key={i}
