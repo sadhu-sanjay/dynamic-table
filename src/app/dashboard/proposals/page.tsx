@@ -9,6 +9,9 @@ import Tabs, { TabItem } from "~/components/Molecules/tab";
 import data from "~/data/data.json";
 import SortButton from "~/components/Atoms/sort-button";
 import FilterButton from "~/components/Atoms/filter-button";
+import LoadingCircle from "~/icons/loading-circle";
+import IconCircleUser from "~/icons/circle-user";
+import CircleIcon from "~/icons/circle-icon";
 
 export default function Proposals() {
   const items: Array<TabItem> = [
@@ -94,12 +97,13 @@ export default function Proposals() {
           <div
             key={i}
             className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
-              w-[290px]
+              w-[290px] h-[260px]
+              flex flex-col justify-between 
             bg-slate-100 border border-slate-200
             dark:bg-slate-800 dark:border-slate-700"
             data-v0-t="card"
           >
-            <div className="flex flex-col space-y-1.5 p-6">
+            <div className=" flex flex-col space-y-1.5 p-6">
               <h3
                 className="text-xl font-semibold leading-none tracking-tight
               text-slate-900 dark:text-slate-50 shadow-sm dark:shadow-slate-700 "
@@ -110,7 +114,7 @@ export default function Proposals() {
                 {element.context ?? "ON-FIELD DECISION"}
               </p>
             </div>
-            <div className="p-6">
+            <div className="p-6 bg-gray-200 dark:bg-gray-700">
               <div
                 className={`text-center text-xl font-bold ${
                   i % 2 == 0
@@ -120,8 +124,13 @@ export default function Proposals() {
               >
                 {i % 2 == 0 ? "REJECTED" : "APPROVED"}
               </div>
-              <div className="text-right text-xs text-gray-500 dark:text-gray-400">
-                1 min ago
+              <div className="flex justify-between items-center">
+                <div className="text-right text-xs text-gray-500 dark:text-gray-400">
+                  1 min ago
+                </div>
+                <div className="text-left text-xs text-red-500 dark:text-red-400 animate-ping ">
+                  <CircleIcon />
+                </div>
               </div>
             </div>
           </div>
