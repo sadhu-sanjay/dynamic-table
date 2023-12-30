@@ -8,7 +8,7 @@ export default function NotificationButton({
   return (
     <button
       type="button"
-      className="relative inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 hover:text-gray-800 dark:bg-gray-700 rounded-4px hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      className="relative inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 hover:text-gray-800  rounded-full hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:bg-gray-700 dark:focus:ring-blue-800"
     >
       <BellIcon />
       <span className="sr-only">Notifications</span>
