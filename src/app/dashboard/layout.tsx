@@ -3,12 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 import { RECORDS_FETCH_URL } from "~/common/config";
-import Searchbar from "~/components/Molecules/searchbar";
 import Header from "~/components/Organisms/header";
 import NavBar from "~/components/Organisms/nav-bar";
-import OrderIcon from "~/icons/order-icon";
 import { FilterProvider } from "~/providers/filter-provider";
-import data from "~/data/data.json";
 import navData from "~/data/nav-data";
 
 export default function DashboardLayout({

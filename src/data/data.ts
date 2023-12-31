@@ -1,4 +1,5 @@
-[
+
+export const data = [
   {
     "name": "Putting John Doe as the new Coach for the next season.",
     "context": "ON-FIELD DECISION",

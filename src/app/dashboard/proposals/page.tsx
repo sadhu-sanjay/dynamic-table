@@ -6,12 +6,13 @@ import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
 import Tabs, { TabItem } from "~/components/Molecules/tab";
-import data from "~/data/data.json";
+import { data } from "~/data/data";
 import SortButton from "~/components/Atoms/sort-button";
 import FilterButton from "~/components/Atoms/filter-button";
 import LoadingCircle from "~/icons/loading-circle";
 import IconCircleUser from "~/icons/circle-user";
 import CircleIcon from "~/icons/circle-icon";
+import LiveButton from "~/components/Atoms/live-button";
 
 export default function Proposals() {
   const items: Array<TabItem> = [
@@ -128,9 +129,7 @@ export default function Proposals() {
                 <div className="text-right text-xs text-gray-500 dark:text-gray-400">
                   1 min ago
                 </div>
-                <div className="text-left text-xs text-red-500 dark:text-red-400 animate-ping ">
-                  <CircleIcon />
-                </div>
+                <LiveButton />
               </div>
             </div>
           </div>

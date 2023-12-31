@@ -21,4 +21,3 @@ export type Record = {
     address: string;
     description: string;
 };
-

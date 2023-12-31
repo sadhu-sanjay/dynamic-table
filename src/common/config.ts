@@ -1,7 +1,9 @@
 import { FieldOption } from "~/models/field";
 
-export const SERVER_URL = 'https://sanjaygoswami.online';
+export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
 export const RECORDS_FETCH_URL = `${SERVER_URL}/api/fake`;
+console.warn("SERVER URL ==>", SERVER_URL)
+export const LIVE_EVENTS_URL = `${SERVER_URL}/events`;
 
 export const visibleColumns: Array<FieldOption> = [
     { value: 'RecordKey', label: 'Record Key' },
