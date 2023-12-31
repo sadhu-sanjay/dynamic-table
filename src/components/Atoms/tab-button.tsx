@@ -22,7 +22,7 @@ const TabButton = ({
       <button
         className={`inline-flex items-center justify-center text-xs font-semibold 
           disabled:opacity-50 hover:bg-secondary/80  bg-gray-200 text-black 
-          rounded-full px-3 py-2
+          rounded-4px px-3 py-2
           ${
             isActive
               ? "dark:text-gray-900 shadow-md outline-none bg-white "

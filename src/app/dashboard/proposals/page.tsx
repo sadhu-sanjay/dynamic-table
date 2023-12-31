@@ -16,7 +16,7 @@ import LiveButton from "~/components/Atoms/live-button";
 import { LIVE_EVENTS_URL } from "~/common/config";
 
 export default function Proposals() {
-  const [liveNumber, setLiveNumber] = useState("");
+  const [liveNumber, setLiveNumber] = useState("9999");
 
   useEffect(() => {
     const evtSource = new EventSource(LIVE_EVENTS_URL, {
@@ -156,7 +156,7 @@ export default function Proposals() {
                 {element.context ?? "ON-FIELD DECISION"}
               </p>
             </div>
-            <div className="p-6 bg-gray-200 dark:bg-gray-700">
+            <div className="p-6 bg-gray-200/30 dark:bg-gray-700">
               <div
                 className={`text-center text-xl font-bold ${getStatusTextColor(
                   element.status
@@ -170,12 +170,12 @@ export default function Proposals() {
                 </div>
                 <div className="border-2 border-gray-600 rounded-full px-2 py-1 flex items-center gap-2 text-left text-xs text-gray-500 dark:text-gray-400">
                   <div
-                    className={`text-left text-xs text-red-500 dark:text-red-400 animate-ping `}
+                    className={`text-left text-xs  ${element.live ? 'animate-ping text-red-500' : 'text-green-500'} `}
                   >
                     <CircleIcon />
                   </div>
                   <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
-                    {liveNumber}
+                    {element.live ? liveNumber : "STABLE"}
                   </div>
                 </div>
               </div>

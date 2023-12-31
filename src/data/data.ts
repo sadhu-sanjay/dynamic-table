@@ -1,5 +1,19 @@
 
-export const data = [
+type Doc = {
+  id: number;
+  name: string;
+  context: string;
+  status: string;
+  color: string;
+  category: string;
+  inStock: string;
+  onSale: string;
+  price: string;
+  weight: string;
+  live: boolean;
+}
+
+export const data: Array<Doc> = [
   {
     "id": 1,
     "name": "Putting John Doe as the new Coach for the next season.",
@@ -10,7 +24,8 @@ export const data = [
     "inStock": "Yes",
     "onSale": "No",
     "price": "$199",
-    "weight": "0.12 lb."
+    "weight": "0.12 lb.",
+    "live": true
   },
   {
     "id": 2,
@@ -22,7 +37,8 @@ export const data = [
     "inStock": "Yes",
     "onSale": "No",
     "price": "$199",
-    "weight": "0.12 lb."
+    "weight": "0.12 lb.",
+    "live": false
   },
   {
     "id": 3,
@@ -34,7 +50,8 @@ export const data = [
     "inStock": "Yes",
     "onSale": "Yes",
     "price": "$2999",
-    "weight": "7.0 lb."
+    "weight": "7.0 lb.",
+    "live": true
   },
   {
     "id": 4,
@@ -46,7 +63,8 @@ export const data = [
     "inStock": "No",
     "onSale": "Yes",
     "price": "$399",
-    "weight": "38 g"
+    "weight": "38 g",
+    "live": true,
   },
   {
     "id": 5,
@@ -58,7 +76,8 @@ export const data = [
     "status": "draft",
     "onSale": "Yes",
     "price": "$699",
-    "weight": "1.3 lb."
+    "weight": "1.3 lb.",
+    "live": true,
   },
   {
     "id": 6,
@@ -70,7 +89,8 @@ export const data = [
     "onSale": "Yes",
     "status": "rejected",
     "price": "$99",
-    "weight": "453 g"
+    "weight": "453 g",
+    "live": false,
   },
   {
     "id": 7,
@@ -82,7 +102,8 @@ export const data = [
     "inStock": "Yes",
     "onSale": "No",
     "price": "$179",
-    "weight": "1.78 lb."
+    "weight": "1.78 lb.",
+    "live": true,
   },
   {
     "id": 8,
@@ -94,62 +115,73 @@ export const data = [
     "inStock": "Yes",
     "onSale": "No",
     "price": "$29",
-    "weight": "53 g"
+    "weight": "53 g",
+    "live": false,
   },
   {
     "id": 9,
     "name": "Naming Alex Turner as the Operations Manager",
     "color": "Black",
     "status": "approved",
+    "context": "ON-FIELD DECISION",
     "category": "Watches",
     "inStock": "Yes",
     "onSale": "No",
     "price": "$199",
-    "weight": "0.12 lb."
+    "weight": "0.12 lb.",
+    "live": false,
   },
   {
     "id": 10,
     "name": "Introducing Olivia Clark as the Head of Customer Experience",
     "color": "Silver",
     "status": "approved",
+    "context": "CREATIVE VISION TRANSLATION",
     "category": "PC",
     "inStock": "Yes",
     "onSale": "Yes",
     "price": "$2999",
-    "weight": "7.0 lb."
+    "weight": "7.0 lb.",
+    "live": true,
   },
   {
     "id": 11,
     "name": "Appointing David Martinez as the Chief Strategy Officer (CSO)",
     "color": "White",
     "status": "draft",
+    "context": "TALENT DEVELOPMENT STRATEGY",
     "category": "Accessories",
     "inStock": "No",
     "onSale": "Yes",
     "price": "$399",
-    "weight": "38 g"
+    "weight": "38 g",
+    "live": false,
   },
   {
     "id": 12,
     "name": "iPad Pro",
     "color": "Gold",
     "status": "rejected",
+    "context": "TECHNOLOGY ROADMAP IMPLEMENTATION",
     "category": "Tablet",
     "inStock": "No",
     "onSale": "Yes",
     "price": "$699",
-    "weight": "1.3 lb."
+    "weight": "1.3 lb.",
+    "live": false,
   },
   {
     "id": 13,
     "name": "Magic Keyboard",
     "color": "Black",
     "status": "rejected",
+    "context": "SALES CAMPAIGN EXECUTION",
     "category": "Accessories",
     "inStock": "Yes",
     "onSale": "Yes",
     "price": "$99",
-    "weight": "453 g"
+    "weight": "453 g",
+    "live": true,
   },
   {
     "id": 14,
@@ -160,17 +192,21 @@ export const data = [
     "inStock": "Yes",
     "onSale": "No",
     "price": "$179",
-    "weight": "1.78 lb."
+    "weight": "1.78 lb.",
+    "context": "OPERATIONAL EFFICIENCY ENHANCEMENT",
+    "live": false,
   },
   {
     "id": 15,
     "name": "AirTag",
     "color": "Silver",
+    "context": "OPERATIONAL EFFICIENCY ENHANCEMENT",
     "status": "ongoing",
     "category": "Accessories",
     "inStock": "Yes",
     "onSale": "No",
     "price": "$29",
-    "weight": "53 g"
+    "weight": "53 g",
+    "live": true,
   }
 ]
