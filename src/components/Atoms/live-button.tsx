@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { LIVE_EVENTS_URL } from "~/common/config";
+import { DocType } from "~/data/doc-data";
 import CircleIcon from "~/icons/circle-icon";
 
-const LiveButton: React.FC = (className) => {
-  const [liveNumber, setLiveNumber] = useState<string>("");
+type LiveButtonProps = {
+  className?: string;
+  doc: DocType;
+};
+
+const LiveButton: React.FC<LiveButtonProps> = ({ className, doc }) => {
+  const [liveNumber, setLiveNumber] = useState<string>("Live");
 
   /**
    * Handle RealTime Events
@@ -38,15 +44,15 @@ const LiveButton: React.FC = (className) => {
 
   return (
     <div className="border-2 border-gray-600 rounded-full px-2 py-1 flex items-center gap-2 text-left text-xs text-gray-500 dark:text-gray-400">
-      {/* a text showing live status */}
       <div
-        className={`text-left text-xs text-red-500 dark:text-red-400 animate-ping ${className}`}
+        className={`text-left text-xs  ${
+          doc.live ? "animate-ping text-red-500" : "text-green-500"
+        } `}
       >
         <CircleIcon />
       </div>
       <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
-        {liveNumber}
-        99
+        {doc.live ? liveNumber : "STABLE"}
       </div>
     </div>
   );

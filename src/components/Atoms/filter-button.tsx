@@ -67,7 +67,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ onClick }) => {
               htmlFor="apple"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
             >
-              Apple (56)
+              Today
             </label>
           </li>
           <li className="flex items-center">
@@ -81,7 +81,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ onClick }) => {
               htmlFor="fitbit"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
             >
-              Fitbit (56)
+              Yesterday
             </label>
           </li>
           <li className="flex items-center">
@@ -95,7 +95,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ onClick }) => {
               htmlFor="dell"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
             >
-              Dell (56)
+              This week
             </label>
           </li>
           <li className="flex items-center">
@@ -110,7 +110,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ onClick }) => {
               htmlFor="asus"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
             >
-              Asus (97)
+              This month
             </label>
           </li>
         </ul>

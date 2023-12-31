@@ -6,7 +6,7 @@ import Searchbar from "~/components/Molecules/searchbar";
 import DocAddIcon from "~/icons/doc-add-icon";
 import { SpeakerIcon } from "~/icons/speaker-icon";
 import Tabs, { TabItem } from "~/components/Molecules/tab";
-import { data } from "~/data/data";
+import { DocType, docdata } from "~/data/doc-data";
 import SortButton from "~/components/Atoms/sort-button";
 import FilterButton from "~/components/Atoms/filter-button";
 import LoadingCircle from "~/icons/loading-circle";
@@ -16,36 +16,6 @@ import LiveButton from "~/components/Atoms/live-button";
 import { LIVE_EVENTS_URL } from "~/common/config";
 
 export default function Proposals() {
-  const [liveNumber, setLiveNumber] = useState("9999");
-
-  useEffect(() => {
-    const evtSource = new EventSource(LIVE_EVENTS_URL, {
-      withCredentials: false,
-    });
-
-    evtSource.onmessage = (event) => {
-      console.log(`message: ${event.data}`);
-    };
-
-    evtSource.onopen = (event) => {
-      console.log("EVENT SOURCE OPEN", event);
-    };
-
-    evtSource.addEventListener("ping", (e) => {
-      console.log("PING EVENT TRIGGERED", e.data);
-      const number = JSON.parse(e.data);
-      setLiveNumber(number);
-    });
-
-    evtSource.onerror = (event) => {
-      console.log("EVENT SOURCE ERROR", event);
-    };
-
-    return () => {
-      evtSource.close();
-    };
-  }, []);
-
   const items: Array<TabItem> = [
     { label: "Ongoing", value: "ongoing", count: 0 },
     { label: "Approved", value: "approved", count: 0 },
@@ -54,16 +24,16 @@ export default function Proposals() {
   ];
 
   items.forEach((item) => {
-    item.count = data.filter((element) => {
+    item.count = docdata.filter((element) => {
       return element.status?.toLowerCase() === item.value.toLowerCase();
     }).length;
   });
 
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState<DocType[]>([]);
   const [activeTab, setActiveTab] = useState(items[2]);
 
   const filterData = (searchText: string, status: string) => {
-    const filtered = data.filter((element) => {
+    const filtered = docdata.filter((element) => {
       const titleMatch = element.name
         .toLowerCase()
         .includes(searchText.toLowerCase());
@@ -142,10 +112,12 @@ export default function Proposals() {
               w-[290px] h-[260px]
               flex flex-col justify-between 
             bg-slate-100 border border-slate-200
-            dark:bg-slate-800 dark:border-slate-700"
+            dark:bg-slate-800 dark:border-slate-700
+            overflow-hidden
+            "
             data-v0-t="card"
           >
-            <div className=" flex flex-col space-y-1.5 p-6">
+            <div className="flex flex-col space-y-1.5 p-6">
               <h3
                 className="text-xl font-semibold leading-none tracking-tight
               text-slate-900 dark:text-slate-50 shadow-sm dark:shadow-slate-700 "
@@ -168,20 +140,7 @@ export default function Proposals() {
                 <div className="text-right text-xs text-gray-500 dark:text-gray-400">
                   1 min ago
                 </div>
-                <div className="border-2 border-gray-600 rounded-full px-2 py-1 flex items-center gap-2 text-left text-xs text-gray-500 dark:text-gray-400">
-                  <div
-                    className={`text-left text-xs  ${
-                      element.live
-                        ? "animate-ping text-red-500"
-                        : "text-green-500"
-                    } `}
-                  >
-                    <CircleIcon />
-                  </div>
-                  <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
-                    {element.live ? liveNumber : "STABLE"}
-                  </div>
-                </div>
+                <LiveButton key={element.id} element={element} />
               </div>
             </div>
           </div>

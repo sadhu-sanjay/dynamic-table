@@ -1,5 +1,5 @@
 
-type Doc = {
+export type DocType = {
   id: number;
   name: string;
   context: string;
@@ -13,7 +13,7 @@ type Doc = {
   live: boolean;
 }
 
-export const data: Array<Doc> = [
+export const docdata: Array<DocType> = [
   {
     "id": 1,
     "name": "Putting John Doe as the new Coach for the next season.",
