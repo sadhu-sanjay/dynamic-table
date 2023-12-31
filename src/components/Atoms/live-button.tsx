@@ -3,7 +3,7 @@ import { LIVE_EVENTS_URL } from "~/common/config";
 import CircleIcon from "~/icons/circle-icon";
 
 const LiveButton: React.FC = (className) => {
-  const [liveNumbers, setLiveNumbers] = useState<number[]>([]);
+  const [liveNumber, setLiveNumber] = useState<string>("");
 
   /**
    * Handle RealTime Events
@@ -24,54 +24,9 @@ const LiveButton: React.FC = (className) => {
 
     evtSource.addEventListener("ping", (e) => {
       console.log("PING EVENT TRIGGERED", e.data);
+      const number = JSON.parse(e.data);
+      setLiveNumber(number);
     });
-
-    evtSource.addEventListener("add", (e) => {
-      console.log("ADD EVENT TRIGGERED", e.data);
-      // const newRecords: Record[] = JSON.parse(e.data);
-      // console.log("ADDED RECORDS", newRecords);
-
-      // setRecords((prevRecords) => {
-      //   return [...prevRecords, ...newRecords];
-      // });
-    });
-
-    evtSource.addEventListener("update", (e) => {
-      console.log("UPDATE EVENT TRIGGERED", e.data);
-      // const updatedRecords: Record[] = JSON.parse(e.data);
-      // console.log("UPDATED RECORDS", updatedRecords);
-
-      // setRecords((prevRecords) => {
-      //   const newRecords = prevRecords.map((each) => {
-      //     const updatedRecord = updatedRecords.find(
-      //       (record) => record.id === each.id
-      //     );
-      //     if (updatedRecord) {
-      //       return updatedRecord;
-      //     } else {
-      //       return each;
-      //     }
-      //   });
-      //   return newRecords;
-      // });
-    });
-
-    evtSource.addEventListener("delete", (e) => {
-      console.log("DELETE EVENT TRIGGERED", e.data);
-      // const deletedRecordIds: string[] = JSON.parse(e.data);
-      // setRecords((prevRecords) =>
-      //   prevRecords.filter((each) => !deletedRecordIds.includes(each.id))
-      // );
-    });
-
-    evtSource.addEventListener("data", (e) => {
-      console.log("consuption", e);
-    });
-
-    evtSource.onerror = (event) => {
-      console.log("EVENT SOURCE ERROR", event);
-      evtSource.close();
-    };
 
     return () => {
       evtSource.close();
@@ -90,7 +45,8 @@ const LiveButton: React.FC = (className) => {
         <CircleIcon />
       </div>
       <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
-        {liveNumbers}
+        {liveNumber}
+        99
       </div>
     </div>
   );

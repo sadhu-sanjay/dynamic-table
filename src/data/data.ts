@@ -1,6 +1,7 @@
 
 export const data = [
   {
+    "id": 1,
     "name": "Putting John Doe as the new Coach for the next season.",
     "context": "ON-FIELD DECISION",
     "color": "Black",
@@ -12,6 +13,7 @@ export const data = [
     "weight": "0.12 lb."
   },
   {
+    "id": 2,
     "name": "Hire Tiger Woods as a player-coach.",
     "context": "MARKETING STRATEGY EXECUTION",
     "color": "Black",
@@ -23,6 +25,7 @@ export const data = [
     "weight": "0.12 lb."
   },
   {
+    "id": 3,
     "name": "Welcoming Mike Johnson as the Head of Marketing",
     "context": "CREATIVE VISION TRANSLATION",
     "status": "rejected",
@@ -34,6 +37,7 @@ export const data = [
     "weight": "7.0 lb."
   },
   {
+    "id": 4,
     "name": "Introducing Sarah Williams as the Chief Technology Officer (CTO)",
     "context": "TALENT DEVELOPMENT STRATEGY",
     "status": "rejected",
@@ -45,28 +49,34 @@ export const data = [
     "weight": "38 g"
   },
   {
+    "id": 5,
     "name": "Announcing Chris Anderson as the Lead Creative Director",
     "context": "FINANCIAL STRATEGY IMPLEMENTATION",
     "color": "Gold",
     "category": "Tablet",
     "inStock": "No",
+    "status": "draft",
     "onSale": "Yes",
     "price": "$699",
     "weight": "1.3 lb."
   },
   {
+    "id": 6,
     "name": "Announcing Chris Anderson as the Lead Creative Director",
     "context": "SALES CAMPAIGN EXECUTION",
     "color": "Black",
     "category": "Accessories",
     "inStock": "Yes",
     "onSale": "Yes",
+    "status": "rejected",
     "price": "$99",
     "weight": "453 g"
   },
   {
+    "id": 7,
     "name": "Designating Mark Roberts as the Chief Financial Officer (CFO)",
     "context": "OPERATIONAL EFFICIENCY ENHANCEMENT",
+    "status": "ongoing",
     "color": "Black",
     "category": "TV",
     "inStock": "Yes",
@@ -75,6 +85,7 @@ export const data = [
     "weight": "1.78 lb."
   },
   {
+    "id": 8,
     "name": "Bringing on Board Lisa Miller as the Sales Director",
     "context": "TECHNOLOGY ROADMAP IMPLEMENTATION",
     "status": "ongoing",
@@ -86,6 +97,7 @@ export const data = [
     "weight": "53 g"
   },
   {
+    "id": 9,
     "name": "Naming Alex Turner as the Operations Manager",
     "color": "Black",
     "status": "approved",
@@ -96,6 +108,7 @@ export const data = [
     "weight": "0.12 lb."
   },
   {
+    "id": 10,
     "name": "Introducing Olivia Clark as the Head of Customer Experience",
     "color": "Silver",
     "status": "approved",
@@ -106,9 +119,10 @@ export const data = [
     "weight": "7.0 lb."
   },
   {
+    "id": 11,
     "name": "Appointing David Martinez as the Chief Strategy Officer (CSO)",
     "color": "White",
-    "status": "rejected",
+    "status": "draft",
     "category": "Accessories",
     "inStock": "No",
     "onSale": "Yes",
@@ -116,6 +130,7 @@ export const data = [
     "weight": "38 g"
   },
   {
+    "id": 12,
     "name": "iPad Pro",
     "color": "Gold",
     "status": "rejected",
@@ -126,6 +141,7 @@ export const data = [
     "weight": "1.3 lb."
   },
   {
+    "id": 13,
     "name": "Magic Keyboard",
     "color": "Black",
     "status": "rejected",
@@ -136,6 +152,7 @@ export const data = [
     "weight": "453 g"
   },
   {
+    "id": 14,
     "name": "Apple TV 4K",
     "color": "Black",
     "status": "ongoing",
@@ -146,6 +163,7 @@ export const data = [
     "weight": "1.78 lb."
   },
   {
+    "id": 15,
     "name": "AirTag",
     "color": "Silver",
     "status": "ongoing",

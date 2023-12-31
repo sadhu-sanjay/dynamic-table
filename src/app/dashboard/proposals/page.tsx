@@ -13,8 +13,39 @@ import LoadingCircle from "~/icons/loading-circle";
 import IconCircleUser from "~/icons/circle-user";
 import CircleIcon from "~/icons/circle-icon";
 import LiveButton from "~/components/Atoms/live-button";
+import { LIVE_EVENTS_URL } from "~/common/config";
 
 export default function Proposals() {
+  const [liveNumber, setLiveNumber] = useState("");
+
+  useEffect(() => {
+    const evtSource = new EventSource(LIVE_EVENTS_URL, {
+      withCredentials: false,
+    });
+
+    evtSource.onmessage = (event) => {
+      console.log(`message: ${event.data}`);
+    };
+
+    evtSource.onopen = (event) => {
+      console.log("EVENT SOURCE OPEN", event);
+    };
+
+    evtSource.addEventListener("ping", (e) => {
+      console.log("PING EVENT TRIGGERED", e.data);
+      const number = JSON.parse(e.data);
+      setLiveNumber(number);
+    });
+
+    evtSource.onerror = (event) => {
+      console.log("EVENT SOURCE ERROR", event);
+    };
+
+    return () => {
+      evtSource.close();
+    };
+  }, []);
+
   const items: Array<TabItem> = [
     { label: "Ongoing", value: "ongoing", count: 0 },
     { label: "Approved", value: "approved", count: 0 },
@@ -44,9 +75,19 @@ export default function Proposals() {
     setFilteredData(filtered);
   };
 
-  useEffect(() => {
-    filterData("", activeTab.value);
-  }, []);
+  const getStatusTextColor = (status: string): string => {
+    if (status === "approved") {
+      return "text-green-600 dark:text-green-400";
+    } else if (status === "ongoing") {
+      return "text-yellow-600 dark:text-yellow-400";
+    } else if (status === "rejected") {
+      return "text-red-600 dark:text-red-400";
+    } else if (status === "draft") {
+      return "text-gray-600 dark:text-gray-400";
+    } else {
+      return "text-red-600 dark:text-red-400";
+    }
+  };
 
   return (
     <div className=" bg-gray-100 rounded-4px dark:bg-slate-800 flex flex-col gap-4 p-5 border h-full w-full">
@@ -96,7 +137,7 @@ export default function Proposals() {
       <div className="flex gap-4 flex-wrap overflow-x-visible overflow-y-scroll py-4">
         {filteredData.map((element, i) => (
           <div
-            key={i}
+            key={element.id}
             className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
               w-[290px] h-[260px]
               flex flex-col justify-between 
@@ -117,19 +158,26 @@ export default function Proposals() {
             </div>
             <div className="p-6 bg-gray-200 dark:bg-gray-700">
               <div
-                className={`text-center text-xl font-bold ${
-                  i % 2 == 0
-                    ? "text-green-600 dark:text-green-400 "
-                    : "text-red-600 dark:text-red-400"
-                }`}
+                className={`text-center text-xl font-bold ${getStatusTextColor(
+                  element.status
+                )}`}
               >
-                {i % 2 == 0 ? "REJECTED" : "APPROVED"}
+                {element.status?.toUpperCase()}
               </div>
               <div className="flex justify-between items-center">
                 <div className="text-right text-xs text-gray-500 dark:text-gray-400">
                   1 min ago
                 </div>
-                <LiveButton />
+                <div className="border-2 border-gray-600 rounded-full px-2 py-1 flex items-center gap-2 text-left text-xs text-gray-500 dark:text-gray-400">
+                  <div
+                    className={`text-left text-xs text-red-500 dark:text-red-400 animate-ping `}
+                  >
+                    <CircleIcon />
+                  </div>
+                  <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
+                    {liveNumber}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
