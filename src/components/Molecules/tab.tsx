@@ -3,7 +3,7 @@ import TabButton from "../Atoms/tab-button";
 export type TabItem = {
   label: string;
   value: string;
-  count?: number; 
+  count?: number;
 };
 
 type TabsProps = {
@@ -21,7 +21,7 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <div
-      className={`tabs  flex items-center gap-1 rounded-4px  shadow-sm px-2 py-2 dark:bg-gray-700 ${className}
+      className={`tabs  flex items-center gap-1 rounded-4px  shadow-sm px-1 py-0.5 dark:bg-gray-700 ${className}
     `}
     >
       {items.map((tab) => (
