@@ -170,7 +170,11 @@ export default function Proposals() {
                 </div>
                 <div className="border-2 border-gray-600 rounded-full px-2 py-1 flex items-center gap-2 text-left text-xs text-gray-500 dark:text-gray-400">
                   <div
-                    className={`text-left text-xs  ${element.live ? 'animate-ping text-red-500' : 'text-green-500'} `}
+                    className={`text-left text-xs  ${
+                      element.live
+                        ? "animate-ping text-red-500"
+                        : "text-green-500"
+                    } `}
                   >
                     <CircleIcon />
                   </div>

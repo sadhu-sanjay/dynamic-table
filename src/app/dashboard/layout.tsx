@@ -31,7 +31,7 @@ export default function DashboardLayout({
         <NavBar navData={navData} className="col-span-2 " />
         <div className="main flex flex-col col-span-10 overflow-hidden">
           <Header title="Proposals" onSubmit={() => {}} />
-          <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 overflow-hidden ">
+          <main className="flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
             {/* <div className="subContainer border shadow-sm rounded-lg overflow-auto"> */}
             {children}
             {/* </div> */}

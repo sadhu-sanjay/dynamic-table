@@ -116,13 +116,12 @@ export const Table: React.FC<TableProps> = ({
                     </tr>
                   ))}
               </tbody>
-              <Paginator
-                isLoading={isFetching}
-                filtered={filteredData?.length}
-                total={data?.length}
-              />
             </table>
-
+            <Paginator
+              isLoading={isFetching}
+              filtered={filteredData?.length}
+              total={data?.length}
+            />
             {filteredData && filteredData.length < 1 && (
               <EmptyList
                 title="No records found"
