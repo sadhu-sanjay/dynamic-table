@@ -14,6 +14,7 @@ import IconCircleUser from "~/icons/circle-user";
 import CircleIcon from "~/icons/circle-icon";
 import LiveButton from "~/components/Atoms/live-button";
 import { LIVE_EVENTS_URL } from "~/common/config";
+import LiveNumberProvider from "~/providers/live-event-provider";
 
 export default function Proposals() {
   const items: Array<TabItem> = [
@@ -29,7 +30,7 @@ export default function Proposals() {
     }).length;
   });
 
-  const [filteredData, setFilteredData] = useState<DocType[]>([]);
+  const [filteredData, setFilteredData] = useState<DocType[]>(docdata);
   const [activeTab, setActiveTab] = useState(items[2]);
 
   const filterData = (searchText: string, status: string) => {
@@ -105,46 +106,48 @@ export default function Proposals() {
         </div>
       </div>
       <div className="flex gap-4 flex-wrap overflow-x-visible overflow-y-scroll py-4">
-        {filteredData.map((element, i) => (
-          <div
-            key={element.id}
-            className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
+        <LiveNumberProvider>
+          {filteredData.map((element, i) => (
+            <div
+              key={element.id}
+              className="rounded-lg text-card-foreground shadow-md hover:scale-105 transition-transform 
               w-[290px] h-[260px]
               flex flex-col justify-between 
             bg-slate-100 border border-slate-200
             dark:bg-slate-800 dark:border-slate-700
             overflow-hidden
             "
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
-              <h3
-                className="text-xl font-semibold leading-none tracking-tight
+              data-v0-t="card"
+            >
+              <div className="flex flex-col space-y-1.5 p-6">
+                <h3
+                  className="text-xl font-semibold leading-none tracking-tight
               text-slate-900 dark:text-slate-50 shadow-sm dark:shadow-slate-700 "
-              >
-                {element.name}
-              </h3>
-              <p className="text-sm bg-slate-200 text-zinc-700 px-2 py-1 inline-block rounded">
-                {element.context ?? "ON-FIELD DECISION"}
-              </p>
-            </div>
-            <div className="p-6 bg-gray-200/30 dark:bg-gray-700">
-              <div
-                className={`text-center text-xl font-bold ${getStatusTextColor(
-                  element.status
-                )}`}
-              >
-                {element.status?.toUpperCase()}
+                >
+                  {element.name}
+                </h3>
+                <p className="text-sm bg-slate-200 text-zinc-700 px-2 py-1 inline-block rounded">
+                  {element.context ?? "ON-FIELD DECISION"}
+                </p>
               </div>
-              <div className="flex justify-between items-center">
-                <div className="text-right text-xs text-gray-500 dark:text-gray-400">
-                  1 min ago
+              <div className="p-6 bg-gray-200/30 dark:bg-gray-700">
+                <div
+                  className={`text-center text-xl font-bold ${getStatusTextColor(
+                    element.status
+                  )}`}
+                >
+                  {element.status?.toUpperCase()}
                 </div>
-                <LiveButton key={element.id} element={element} />
+                <div className="flex justify-between items-center">
+                  <div className="text-right text-xs text-gray-500 dark:text-gray-400">
+                    1 min ago
+                  </div>
+                  <LiveButton key={element.id} doc={element} />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </LiveNumberProvider>
       </div>
     </div>
   );
