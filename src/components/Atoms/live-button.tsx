@@ -24,7 +24,7 @@ const LiveButton: React.FC<LiveButtonProps> = ({ className, doc }) => {
         <CircleIcon />
       </div>
       <div className="text-xs font-semibold text-gray400 dark:text-gray-400">
-        {doc.live ? Number(liveNumber) * doc.id : "STABLE"}
+        {doc.live ? (liveNumber * doc.id) : "STABLE"}
       </div>
     </div>
   );

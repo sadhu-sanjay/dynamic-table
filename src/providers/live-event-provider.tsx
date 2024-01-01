@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { LIVE_EVENTS_URL } from "~/common/config";
 
 // Create a context for the live number
-export const LiveNumberContext = createContext("");
+export const LiveNumberContext = createContext(0);
 
 // Create a provider component
 export const LiveNumberProvider = ({
@@ -10,7 +10,7 @@ export const LiveNumberProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [liveNumber, setLiveNumber] = useState("Live");
+  const [liveNumber, setLiveNumber] = useState(0);
 
   // Move the event source logic here
   useEffect(() => {
