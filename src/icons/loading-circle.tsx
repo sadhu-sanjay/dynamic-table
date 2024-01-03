@@ -7,6 +7,8 @@ export default function LoadingCircle({ dimensions }: { dimensions?: string }) {
       } animate-spin fill-stone-600 text-stone-200`}
       viewBox="0 0 100 101"
       fill="none"
+      width={24}
+      height={24}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

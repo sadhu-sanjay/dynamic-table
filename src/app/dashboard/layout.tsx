@@ -7,6 +7,7 @@ import Header from "~/components/Organisms/header";
 import NavBar from "~/components/Organisms/nav-bar";
 import { FilterProvider } from "~/providers/filter-provider";
 import navData from "~/data/nav-data";
+import { useSignInModal } from "../(auth)/login/sign-in-modal";
 
 export default function DashboardLayout({
   children,
@@ -20,9 +21,11 @@ export default function DashboardLayout({
   });
 
   const [selectedNav, setSelectedNav] = useState("proposals");
+  const { SignInModal, setShowSignInModal } = useSignInModal();
 
   return (
     <FilterProvider>
+      <SignInModal />
       <div
         className="container bg-white
       dark:bg-gray-900 
@@ -30,11 +33,11 @@ export default function DashboardLayout({
       >
         <NavBar navData={navData} className="col-span-2 " />
         <div className="main flex flex-col col-span-10 overflow-hidden">
-          <Header title="Proposals" onSubmit={() => {}} />
+          <Header title="Proposals" onSubmit={() => setShowSignInModal(true)} />
           <main className="flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
-            {/* <div className="subContainer border shadow-sm rounded-lg overflow-auto"> */}
-            {children}
-            {/* </div> */}
+            <div className="subContainer border shadow-sm rounded-lg overflow-auto">
+              {children}
+            </div>
           </main>
         </div>
       </div>

@@ -116,8 +116,6 @@ export const Table: React.FC<TableProps> = ({
                     </tr>
                   ))}
               </tbody>
-
-              
             </table>
 
             <footer className="sticky bottom-0">

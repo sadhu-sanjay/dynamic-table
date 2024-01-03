@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ title, onSubmit }) => {
         <h1 className="font-semibold text-lg">{title}</h1>
       </div>
       <div className="flex flex-1 items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        {/* <Searchbar className="ml-auto hidden md:block" onSubmit={onSubmit} /> */}
+        <Searchbar className="ml-auto hidden md:block" onSubmit={onSubmit} />
         <NotificationButton className="hidden md:block" />
         <Link href="/login">
         <button

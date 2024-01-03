@@ -2,6 +2,8 @@ export const SearchIcon = () => {
   return (
     <svg
       className="w-4 h-4 text-gray-500 dark:text-gray-400"
+      width={24}
+      height={24}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

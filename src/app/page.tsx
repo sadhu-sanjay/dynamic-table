@@ -1,8 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import LiveButton from "~/components/Atoms/live-button";
-import { docdata } from "~/data/doc-data";
+import Modal from "~/components/shared/modal";
 
 export default function Home() {
   const router = useRouter();
