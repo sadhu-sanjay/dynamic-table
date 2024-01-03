@@ -1,5 +1,5 @@
-import { authConfig } from '~/../auth.config';
 import NextAuth from 'next-auth';
-import { handler } from '~/../src/'
+import { handlers } from '~/../auth';
 
-export { handler as GET, handler as POST };
+const { GET, POST } = handlers;
+
