@@ -64,7 +64,7 @@ const NavBar: React.FC<NavBarProps> = ({
                       ? " bg-gray-100 dark:bg-gray-800 dark:text-gray-50 text-gray-900 scale-105"
                       : ""
                   }`}
-                  href={`/dashboard/${item.path}`}
+                  href={`/${item.path}`}
                   onClick={() => {
                     setSelected(item.id);
                   }}

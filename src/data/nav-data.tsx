@@ -1,6 +1,5 @@
 import BoxIcon from "~/icons/box-icon";
 import CartIcon from "~/icons/cart-icon";
-import IconCircleUser from "~/icons/circle-user";
 import DocTextIcon from "~/icons/doctext-icon";
 import IconHome from "~/icons/icon-home";
 import IconSettings from "~/icons/icon-settings";
@@ -13,51 +12,51 @@ const navData: NavItem[] = [
   {
     id: "1",
     label: "Home",
-    path: "/",
+    path: "dashboard",
     icon: <IconHome />,
   },
   {
     id: "2",
     label: "Profile",
-    path: "#",
+    path: "dashboard",
     icon: <IconUsers />,
   },
   {
     id: "3",
     label: "Settings",
-    path: "/#",
+    path: "dashboard",
     icon: <IconSettings />,
   },
   {
     id: "4",
     label: "Products",
-    path: "#",
+    path: "dashboard",
     icon: <BoxIcon />,
   },
   {
     id: "5",
     label: "Orders",
-    path: "/orders",
+    path: "dashboard",
     icon: <CartIcon />,
     badge: "50",
   },
   {
     id: "6",
     label: "Proposals",
-    path: "/proposals",
+    path: "dashboard",
     icon: <DocTextIcon />,
     badge: "21",
   },
   {
     id: "7",
     label: "Customers",
-    path: "#",
+    path: "dashboard",
     icon: <IconUsers />,
   },
   {
     id: "8",
     label: "Analytics",
-    path: "#",
+    path: "dashboard",
     icon: <LoadingCircle />,
   },
 ];

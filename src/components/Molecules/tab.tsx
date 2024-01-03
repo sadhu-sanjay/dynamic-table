@@ -21,7 +21,7 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <div
-      className={`tabs  flex items-center gap-1 rounded-4px  shadow-sm px-1 py-0.5 dark:bg-gray-700 ${className}
+      className={`tabs  flex items-center gap-1 rounded-4px  shadow-sm px-1.5 py-1 dark:bg-gray-700 ${className}
     `}
     >
       {items.map((tab) => (

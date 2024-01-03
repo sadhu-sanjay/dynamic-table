@@ -9,6 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     router.push("/dashboard");
+    // router.push("/login");
   }, [router]);
 
   return (
