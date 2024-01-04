@@ -36,7 +36,7 @@ const navData: NavItem[] = [
   {
     id: "5",
     label: "Orders",
-    path: "dashboard",
+    path: "dashboard/orders",
     icon: <CartIcon />,
     badge: "50",
   },

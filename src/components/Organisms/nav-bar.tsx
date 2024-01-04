@@ -48,7 +48,7 @@ const NavBar: React.FC<NavBarProps> = ({
         <div className="flex h-[60px] items-center px-6">
           <a className="flex items-center gap-2 font-semibold" href="#">
             <Image alt="logo" src="/logo.png" width={30} height={30} />
-            <span className="">Shicane Inc</span>
+            <span className="">Itne Inc</span>
           </a>
         </div>
 

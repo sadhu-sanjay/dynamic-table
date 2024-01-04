@@ -33,11 +33,15 @@ export default function DashboardLayout({
       >
         <NavBar navData={navData} className="col-span-2 " />
         <div className="main flex flex-col col-span-10 overflow-hidden">
-          <Header title="Proposals" onSubmit={() => setShowSignInModal(true)} />
-          <main className="flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
-            <div className="subContainer border shadow-sm rounded-lg overflow-auto">
+          <Header
+            title="Proposals"
+            onSubmit={() => console.log("search")}
+            onAvatarClick={() => setShowSignInModal(true)}
+          />
+          <main className="rounded-4px flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
+            {/* <div className="rounded-4px subContainer border shadow-sm overflow-auto"> */}
               {children}
-            </div>
+            {/* </div> */}
           </main>
         </div>
       </div>
