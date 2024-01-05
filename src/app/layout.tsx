@@ -1,4 +1,3 @@
-import ReactQueryProvider from "~/providers/tanstack-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -19,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Toaster richColors position="top-right" />
-          {children}
+        <Toaster richColors position="top-right" />
+        {children}
       </body>
     </html>
   );

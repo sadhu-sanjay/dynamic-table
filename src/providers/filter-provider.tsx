@@ -1,6 +1,4 @@
-'use client'
 import { useState, PropsWithChildren, createContext, useContext } from "react";
-import { FieldOption } from "~/models/field";
 
 export enum Operators {
   equal = "eq",
@@ -14,7 +12,7 @@ export enum Operators {
   after = "after",
 }
 
-export type FilterValue = string | number | boolean | Date | Array<String> ;
+export type FilterValue = string | number | boolean | Date | Array<String>;
 
 export type FilterCondition = [string, Operators, FilterValue];
 

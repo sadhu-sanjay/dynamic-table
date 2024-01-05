@@ -1,20 +1,19 @@
-'use client'
+"use client";
 import Header from "~/components/Organisms/header";
 import NavBar from "~/components/Organisms/nav-bar";
 import { FilterProvider } from "~/providers/filter-provider";
 import navData from "~/data/nav-data";
 import { useSignInModal } from "~/app/(auth)/login/sign-in-modal";
 import UserDropdown from "~/components/Organisms/user-dropdown";
-import { getServerSession } from "next-auth/next";
+import { useSession } from "next-auth/react";
 
-export default async function DashboardLayout({
+export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
-
   const { SignInModal, setShowSignInModal } = useSignInModal();
+  const { data: session } = useSession();
 
   return (
     <FilterProvider>
