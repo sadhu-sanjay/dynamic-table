@@ -1,3 +1,5 @@
+'use client'
+
 import Modal from "~/components/layouts/modal";
 import { signIn } from "next-auth/react";
 import {

@@ -19,10 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReactQueryProvider>
           <Toaster richColors position="top-right" />
           {children}
-        </ReactQueryProvider>
       </body>
     </html>
   );

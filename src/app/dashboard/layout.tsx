@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { RECORDS_FETCH_URL } from "~/common/config";
+'use client'
 import Header from "~/components/Organisms/header";
 import NavBar from "~/components/Organisms/nav-bar";
 import { FilterProvider } from "~/providers/filter-provider";
@@ -14,12 +12,6 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const resp = useQuery({
-    queryKey: ["data"],
-    queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
-    refetchOnWindowFocus: false,
-  });
-
   const session = await getServerSession();
 
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -38,19 +30,8 @@ export default async function DashboardLayout({
             title="Proposals"
             onSubmit={() => console.log("search")}
             onAvatarClick={() => setShowSignInModal(true)}
+            session={session}
           />
-          <div>
-            {session ? (
-              <UserDropdown session={session} />
-            ) : (
-              <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-                onClick={() => setShowSignInModal(true)}
-              >
-                Sign In
-              </button>
-            )}
-          </div>
           <main className="rounded-4px flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
             <div className="rounded-4px subContainer border shadow-sm overflow-auto">
               {children}

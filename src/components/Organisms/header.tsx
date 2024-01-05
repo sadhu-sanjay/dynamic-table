@@ -6,12 +6,18 @@ import NotificationButton from "../Atoms/notification-button";
 import Link from "next/link";
 
 interface HeaderProps {
+  session: any;
   title: string;
   onSubmit: (value: string) => void;
   onAvatarClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, onSubmit, onAvatarClick }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  onSubmit,
+  onAvatarClick,
+  session,
+}) => {
   return (
     <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
       <a className="lg:hidden" href="#">
