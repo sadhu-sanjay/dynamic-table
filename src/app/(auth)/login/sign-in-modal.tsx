@@ -42,8 +42,10 @@ const SignInModal = ({
           </p>
         </div>
 
-        <div className="flex flex-col space-y-4 bg-gray-50 dark:bg-gray-800
-         px-4 py-8 md:px-16">
+        <div
+          className="flex flex-col space-y-4 bg-gray-50 dark:bg-gray-800
+         px-4 py-8 md:px-16"
+        >
           <button
             disabled={signInClicked}
             className={`${
@@ -66,7 +68,6 @@ const SignInModal = ({
             )}
           </button>
           <LoginButton />
-          
         </div>
       </div>
     </Modal>

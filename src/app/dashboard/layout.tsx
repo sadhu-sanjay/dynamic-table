@@ -1,5 +1,3 @@
-"use client";
-
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { RECORDS_FETCH_URL } from "~/common/config";
@@ -8,9 +6,10 @@ import NavBar from "~/components/Organisms/nav-bar";
 import { FilterProvider } from "~/providers/filter-provider";
 import navData from "~/data/nav-data";
 import { useSignInModal } from "~/app/(auth)/login/sign-in-modal";
-import { useSession } from "next-auth/react";
+import UserDropdown from "~/components/Organisms/user-dropdown";
+import { getServerSession } from "next-auth/next";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -20,7 +19,8 @@ export default function DashboardLayout({
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),
     refetchOnWindowFocus: false,
   });
-  const { status } = useSession();
+
+  const session = await getServerSession();
 
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
@@ -39,6 +39,18 @@ export default function DashboardLayout({
             onSubmit={() => console.log("search")}
             onAvatarClick={() => setShowSignInModal(true)}
           />
+          <div>
+            {session ? (
+              <UserDropdown session={session} />
+            ) : (
+              <button
+                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
+                onClick={() => setShowSignInModal(true)}
+              >
+                Sign In
+              </button>
+            )}
+          </div>
           <main className="rounded-4px flex flex-1 flex-col p-4 md:p-6 overflow-hidden ">
             <div className="rounded-4px subContainer border shadow-sm overflow-auto">
               {children}
