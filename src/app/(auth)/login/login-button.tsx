@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export default function LoginButton() {
   const [loading, setLoading] = useState(false);

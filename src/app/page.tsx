@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Modal from "~/components/shared/modal";
+import Modal from "~/components/layouts/modal";
 
 export default function Home() {
   const router = useRouter();
