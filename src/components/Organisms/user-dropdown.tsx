@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { signOut } from "next-auth/react";
-import LogoutIcon from "~/icons/logout-icon";
 import IconBxsDashboard from "~/icons/dashboard-icon";
 import Popover from "~/components/layouts/popover";
 import Image from "next/image";
 import { Session } from "next-auth";
+import { LogoutIcon } from "~/icons/logout-icon";
 
 export default function UserDropdown({ session }: { session: Session }) {
   const { email, image } = session?.user || {};

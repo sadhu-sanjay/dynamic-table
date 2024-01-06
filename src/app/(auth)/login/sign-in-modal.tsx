@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Modal from "~/components/layouts/modal";
 import { signIn } from "next-auth/react";
@@ -13,7 +13,8 @@ import LoadingDots from "~/icons/loading-dots-icon";
 
 import Image from "next/image";
 import Google from "~/icons/google-icon";
-import LoginButton from "./login-button";
+import LoginButton from "../../../components/Atoms/github-login-button";
+import GithubIcon from "~/icons/github-icon";
 
 const SignInModal = ({
   showSignInModal,
@@ -37,7 +38,7 @@ const SignInModal = ({
               height={64}
             />
           </a>
-          <h3 className="font-display text-2xl font-bold">Sign In</h3>
+          <h3 className="font-display text-2xl font-bold">Itne inc</h3>
           <p className="text-sm text-gray-500">
             This is strictly for demo purposes - only your email and profile
             picture will be stored.
@@ -45,15 +46,18 @@ const SignInModal = ({
         </div>
 
         <div
-          className="flex flex-col space-y-4 bg-gray-50 dark:bg-gray-800
+          className="flex flex-col  bg-gray-50 dark:bg-gray-800
          px-4 py-8 md:px-16"
         >
+          <LoginButton >
+            <GithubIcon className="h-5 w-5" />
+          </LoginButton>
           <button
             disabled={signInClicked}
             className={`${
               signInClicked
                 ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                : "border border-gray-200 bg-white dark:bg-black text-black hover:bg-gray-50"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setSignInClicked(true);
@@ -65,11 +69,13 @@ const SignInModal = ({
             ) : (
               <>
                 <Google className="h-5 w-5" />
-                <p>Sign In with Google</p>
+                <p className="text-sm font-medium text-stone-600 dark:text-stone-400">
+                Sign In with Google
+          </p>
               </>
             )}
           </button>
-          <LoginButton />
+          
         </div>
       </div>
     </Modal>
