@@ -46,7 +46,6 @@ export const Table: React.FC<TableProps> = ({
 
   const handleSort = (key: string) => {};
 
-  console.log("filteredData", filteredData);
 
   return (
     <div

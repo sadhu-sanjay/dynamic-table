@@ -8,7 +8,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col flex-1 w-0 ">
+    <div className="flex flex-col flex-1 overflow-hidden">
       <ReactQueryProvider>{children}</ReactQueryProvider>
     </div>
   );
