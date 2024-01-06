@@ -7,6 +7,7 @@ import { Table } from "~/components/sections/table";
 import { FilterProvider } from "~/providers/filter-provider";
 
 export default function Orders() {
+
   const resp = useQuery({
     queryKey: ["data"],
     queryFn: () => axios(RECORDS_FETCH_URL).then((res) => res.data),

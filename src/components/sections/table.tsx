@@ -1,13 +1,10 @@
-"use client";
 import { useEffect, useState } from "react";
-import TableHeader from "~/components/Organisms/table-header";
 import { SortConfig } from "~/models/types";
 import SortIcon from "~/icons/sort-icon";
 import EmptyList from "../Organisms/empty-list";
 import { NO_RECORDS_TRY_AGAIN } from "~/common/config";
 import { Spinner } from "../Atoms/spinner";
 import { Operators, useFilters } from "~/providers/filter-provider";
-import { FieldOption } from "~/models/field";
 import { Paginator } from "../Organisms/Paginator";
 
 type TableProps = {
@@ -48,6 +45,8 @@ export const Table: React.FC<TableProps> = ({
   }, [data, selectedFilters]);
 
   const handleSort = (key: string) => {};
+
+  console.log("filteredData", filteredData);
 
   return (
     <div
