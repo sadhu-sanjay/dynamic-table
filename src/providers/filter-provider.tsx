@@ -1,3 +1,4 @@
+'use client'
 import { useState, PropsWithChildren, createContext, useContext } from "react";
 
 export enum Operators {

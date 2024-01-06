@@ -30,7 +30,7 @@ const navData: NavItem[] = [
   {
     id: "4",
     label: "Products",
-    path: "dashboard",
+    path: "dashboard/test",
     icon: <BoxIcon />,
   },
   {

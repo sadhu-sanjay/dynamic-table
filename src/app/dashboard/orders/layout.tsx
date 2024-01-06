@@ -1,3 +1,5 @@
+"use client";
+
 import ReactQueryProvider from "~/providers/tanstack-provider";
 
 export default function DashboardLayout({

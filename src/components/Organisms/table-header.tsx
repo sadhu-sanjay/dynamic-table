@@ -1,4 +1,4 @@
-import { Field, FieldOption } from "~/models/field";
+import { Field } from "~/models/field";
 import filterFields from "~/data/FilterData";
 import DynamicFilterList from "./dynamic-filter-list";
 const fields: Field[] = filterFields as Field[];

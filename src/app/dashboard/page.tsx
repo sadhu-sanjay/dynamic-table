@@ -1,3 +1,5 @@
-export default function Dashboard() {
-  return <div></div>;
+import Proposals from "./proposals/page";
+
+export default function Page() {
+  return <Proposals />;
 }
