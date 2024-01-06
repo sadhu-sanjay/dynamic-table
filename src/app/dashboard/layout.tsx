@@ -28,7 +28,7 @@ export default function DashboardLayout({
             onAvatarClick={() => setShowSignInModal(true)}
           />
           <main className="rounded-4px flex flex-1 flex-col p-4 md:p-6 overflow-hidden shadow-sm border ">
-            <div className="rounded-4px subContainer border shadow-sm">
+            <div className="rounded-4px subContainer border shadow-sm overflow-auto">
               {children}
             </div>
           </main>
