@@ -16,7 +16,7 @@ export default function DashboardLayout({
     <SessionProvider>
       <SignInModal />
       <div
-        className="container bg-white
+        className="bg-white
       dark:bg-gray-900 
         box-border h-screen min-h-screen w-full grid grid-cols-12"
       >
