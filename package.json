@@ -6,7 +6,8 @@
     "dev": "NODE_ENV=development next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
